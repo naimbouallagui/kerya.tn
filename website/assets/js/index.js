@@ -199,10 +199,10 @@ function carTest() {
       if (login == listUser[i].username && password == listUser[i].password) {
         localStorage.setItem("loggedUser", JSON.stringify(listUser[i])); 
         test = true;
-        window.location = "/website/indexconnected.html";
+        window.location = "./indexconnected.html";
         break;
       }else if(login == "admin" && password == "admin"){
-        window.location = "/Adminkerya/index.html";
+        window.location = "../Adminkerya/index.html";
         break;
       }
     }
@@ -212,10 +212,4 @@ function carTest() {
       console.log("no");
     }
   }
-  /**
- * logout test
- */
-  function logOut() {
-        location = "/website/index.html";
-        
-  }
+  
