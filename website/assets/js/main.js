@@ -493,3 +493,6 @@ if(kbs) {
 	});
 	slideshow.init();
 }
+
+
+  
