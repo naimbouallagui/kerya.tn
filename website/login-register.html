@@ -2,11 +2,11 @@
 <html class="no-js" lang="zxx">
 
 
-<!-- Mirrored from demo.hasthemes.com/khonike-preview/khonike/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Nov 2019 10:40:07 GMT -->
+<!-- Mirrored from demo.hasthemes.com/kerya-preview/kerya/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Nov 2019 10:40:07 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Khonike - Real Estate Bootstrap 4 Template</title>
+    <title>kerya.tn</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
@@ -116,18 +116,12 @@
                         <div id="login-tab" class="tab-pane show active">
                             <form action="#">
                                 <div class="row">
-                                    <div class="col-12 mb-30"><input type="text" placeholder="User Name" required></div>
-                                    <div class="col-12 mb-30"><input type="password" placeholder="Password" required></div>
-                                    <div class="col-12 mb-30">
-                                        <ul>
-                                            <li><input type="checkbox" id="login_remember" required> <label for="login_remember">Remember me</label></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-12 mb-30"><button class="btn">Login</button></div>
+                                    <div class="col-12 mb-30"><input id="login" type="text" placeholder="User Name" required></div>
+                                    <div class="col-12 mb-30"><input id="password" type="password" placeholder="Password" required></div>
+                                    <div class="col-12 mb-30"><button class="btn" onclick="logIn()">Login</button></div>
 
                                     <div class="col-12 d-flex justify-content-between">
-                                        <span>New User to Khonike?&nbsp; <a class="register-toggle" href="#register-tab">Register!</a></span>
-                                        <span><a href="forgot-password.html">Forgot Password ?</a></span>
+                                        <span>New User to kerya.tn ?&nbsp; <a class="register-toggle" href="#register-tab">Register!</a></span>
                                     </div>
                                 </div>
                             </form>
@@ -135,25 +129,15 @@
                         <div id="register-tab" class="tab-pane">
                             <form action="#">
                                 <div class="row">
-                                    <div class="col-12 mb-30"><input type="text" placeholder="First Name" required></div>
-                                    <div class="col-12 mb-30"><input type="text" placeholder="Last Name" required></div>
-                                    <div class="col-12 mb-30"><input type="email" placeholder="Email" required></div>
-                                    <div class="col-12 mb-30"><input type="text" placeholder="User Name" required></div>
-                                    <div class="col-12 mb-30"><input type="password" placeholder="Password" required></div>
-                                    <div class="col-12 mb-30"><input type="password" placeholder="Confirm Password" required></div>
-                                    <div class="col-12 mb-30">
-                                        <ul>
-                                            <li><input type="checkbox" id="register_agree" required><label for="register_agree">I agree with your <a href="#">Terms & Conditions</a></label></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-12 mb-30">
-                                        <ul>
-                                            <li><input type="radio" name="account_type" id="register_normal" checked><label for="register_normal">Normal</label></li>
-                                            <li><input type="radio" name="account_type" id="register_agent"><label for="register_agent">Agent</label></li>
-                                            <li><input type="radio" name="account_type" id="register_agency"><label for="register_agency">Agency</label></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-12"><button class="btn">Register</button></div>
+                                    <div class="col-12 mb-30"><input id="firstname" type="text" placeholder="First Name" onblur="firstName()" required></div>
+                                    <div class="col-12 mb-30"><input id="lastname" type="text" placeholder="Last Name" onblur="lastName()" required></div>
+                                    <div class="col-12 mb-30"><input id="mail" type="email" placeholder="Email" onblur="isMailConfirmed()" required></div>
+                                    <div class="col-12 mb-30"><input id="number" type="text" placeholder="Phone" onblur="validNumber()" required></div>
+                                    <div class="col-12 mb-30"><input id="username" type="text" placeholder="User Name" onblur="userName()" required></div>
+                                    <div class="col-12 mb-30"><input id="psw" type="password" placeholder="Password" onblur="passwordTest()" required></div>
+                                    <div class="col-12 mb-30"><input id="paswc" type="password" placeholder="Confirm Password" onblur="confirmPassword()" required></div>
+                                    
+                                    <div class="col-12"><button id="click" class="btn" onclick="register()"><a class="register-toggle" href="#login-tab">Register</a></button></div>
                                 </div>
                             </form>
                         </div>
@@ -264,9 +248,9 @@
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/map-place.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/index.js"></script>
 
 </body>
 
 
-<!-- Mirrored from demo.hasthemes.com/khonike-preview/khonike/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Nov 2019 10:40:07 GMT -->
 </html>
