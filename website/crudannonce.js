@@ -115,7 +115,7 @@ function addAnnonce() {
 
     // book a space on localstorage as a list
     let listAnnonce= JSON.parse(localStorage.getItem("Annonce"));
-    let loggedUser
+    
     if (listAnnonce == null) {
         listAnnonce = [];
     }
@@ -127,7 +127,7 @@ function addAnnonce() {
      ) {
         // structure of object to add in localstorage
         var Annonce = {
-            id: Math.floor(Math.random() * 1000 + 1),
+            
             title: document.getElementById("property_title").value,
             Adress: document.getElementById("property_address").value,
             rent: document.getElementById("rentinput").value,
@@ -135,12 +135,12 @@ function addAnnonce() {
             descr: document.getElementById("property_description").value,
            
             map: document.getElementById("map_address").value,
-            owner: JSON.parse(localStorage.getItem('loggedUser')).id
+            
         };
         // push the structure and setitem as a string
-        listAnnonce.push(annonce);
-        localStorage.setItem("annonce", JSON.stringify(listannonce));
-        console.log(localStorage.getItem("annonce"));
+        listAnnonce.push(Annonce);
+        localStorage.setItem("annonce", JSON.stringify(listAnnonce));
+        console.log(localStorage.getItem("Annonce"));
     } else {
         console.log("you have to enter details ");
     }
