@@ -115,7 +115,7 @@
                         <div class="tab-pane show active" id="basic_info">
                             <div class="tab-body">
 
-                                <form action="#">
+                                <form action="#" id=formadd>
                                     <div class="row">
                                         <div class="col-12 mb-30">
                                             <label for="property_title">Property Title</label>
@@ -129,16 +129,16 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Status</label>
-                                            <select class="nice-select">
+                                            <select class="nice-select" id="rentinput">
                                                 <option>For Rent</option>
-                                                <option>For Sale</option>
+                                                
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Rental Period</label>
-                                            <select class="nice-select">
-                                                <option>Daily</option>
+                                            <select class="nice-select" id="rentalPeriod" onchange="myFunction()">
+                                                <option>Daily selected="selected"</option>
                                                 <option>Weekly</option>
                                                 <option>Monthly</option>
                                                 <option>Yearly</option>
@@ -147,13 +147,11 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Type</label>
-                                            <select class="nice-select">
-                                                <option>Apartment</option>
-                                                <option>Cafe</option>
+                                            <select class="nice-select" id="typemaison" onchange="myFunction1()">
+                                                <option>Apartment selected="selected"</option>
+                                                
                                                 <option>House</option>
-                                                <option>Restaurant</option>
-                                                <option>Store</option>
-                                                <option>Villa</option>
+                                                
                                             </select>
                                         </div>
 
@@ -212,8 +210,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Building age</label>
-                                            <select class="nice-select">
-                                                <option>1 Years</option>
+                                            <select class="nice-select" id="buildage" onchange="myFunction2()">
+                                                <option>1 Years selected="selected"</option>
                                                 <option>2 Years</option>
                                                 <option>3 Years</option>
                                                 <option>4 Years</option>
@@ -227,8 +225,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Bedrooms</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            <select class="nice-select" id="nbbedrooms" onchange="myFunction3()">
+                                                <option>1 selected="selected"</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
@@ -242,8 +240,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Bathrooms</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            <select class="nice-select" id="nbbathrooms" onchange="myFunction4()">
+                                                <option>1 selected="selected"</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
@@ -257,8 +255,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Kitchen</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            <select class="nice-select" id="nbkitchen" onchange="myFunction5()">
+                                                <option>1 selected="selected"</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                             </select>
@@ -266,8 +264,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Garage</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            <select class="nice-select" id="nbgarage" onchange="myFunction6()">
+                                                <option>1 selected="selected"</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
@@ -276,23 +274,23 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Cooling</label>
-                                            <select class="nice-select">
-                                                <option>Yes</option>
+                                            <select class="nice-select" id="choix" onchange="myFunction7()">
+                                                <option>Yes selected="selected"</option>
                                                 <option>No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Heating</label>
-                                            <select class="nice-select">
-                                                <option>Yes</option>
+                                            <select class="nice-select" id="choix2" onchange="myFunction8()">
+                                                <option>Yes selected="selected"</option>
                                                 <option>No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Sewer</label>
-                                            <select class="nice-select">
+                                            <select class="nice-select" id="choix3" onchange="myFunction9()" > 
                                                 <option>Yes</option>
                                                 <option>No</option>
                                             </select>
@@ -300,8 +298,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Water</label>
-                                            <select class="nice-select">
-                                                <option>Yes</option>
+                                            <select class="nice-select" id="choix4" onchange="myFunction10()" >
+                                                <option>Yes selected="selected"</option>
                                                 <option>No</option>
                                             </select>
                                         </div>
