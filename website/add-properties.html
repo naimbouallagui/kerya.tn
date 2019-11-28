@@ -115,30 +115,30 @@
                         <div class="tab-pane show active" id="basic_info">
                             <div class="tab-body">
 
-                                <form action="#">
+                                <form action="#" id=formadd>
                                     <div class="row">
                                         <div class="col-12 mb-30">
                                             <label for="property_title">Property Title</label>
-                                            <input type="text" id="property_title">
+                                            Annonce:<input type="text" id="property_title">
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label for="property_address">Address</label>
-                                            <input type="text" id="property_address">
+                                            Annonce:<input type="text" id="property_address">
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Status</label>
-                                            <select class="nice-select">
+                                            Annonce: <select class="nice-select" id="rentinput">
                                                 <option>For Rent</option>
-                                                <option>For Sale</option>
+                                                
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Rental Period</label>
-                                            <select class="nice-select">
-                                                <option>Daily</option>
+                                            Annonce: <select class="nice-select" id="rentalPeriod" onchange="myFunction()">
+                                                <option>Daily </option>
                                                 <option>Weekly</option>
                                                 <option>Monthly</option>
                                                 <option>Yearly</option>
@@ -147,24 +147,22 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Type</label>
-                                            <select class="nice-select">
-                                                <option>Apartment</option>
-                                                <option>Cafe</option>
+                                            <select class="nice-select" id="typemaison" onchange="myFunction1()">
+                                                <option>Apartment </option>
+                                                
                                                 <option>House</option>
-                                                <option>Restaurant</option>
-                                                <option>Store</option>
-                                                <option>Villa</option>
+                                                
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label for="property_price">Price <span>(USD)</span></label>
-                                            <input type="text" id="property_price">
+                                            Annonce:  <input type="text" id="property_price">
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label for="property_area">Area <span>(SqFt)</span></label>
-                                            <input type="text" id="property_area">
+                                            Annonce:  <input type="text" id="property_area">
                                         </div>
 
                                         <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15">
@@ -188,7 +186,7 @@
 
                                         <div class="col-12 mb-30">
                                             <label for="property_video">Video Presentation Link</label>
-                                            <input type="text" id="property_video">
+                                            Annonce:      <input type="text" id="property_video">
                                         </div>
 
                                         <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15">
@@ -207,13 +205,13 @@
                                     <div class="row">
                                         <div class="col-12 mb-30">
                                             <label for="property_description">Description</label>
-                                            <textarea id="property_description"></textarea>
+                                            Annonce:   <textarea id="property_description"></textarea>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Building age</label>
-                                            <select class="nice-select">
-                                                <option>1 Years</option>
+                                            Annonce:    <select class="nice-select" id="buildage" onchange="myFunction2()">
+                                                <option>1 Years </option>
                                                 <option>2 Years</option>
                                                 <option>3 Years</option>
                                                 <option>4 Years</option>
@@ -227,8 +225,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Bedrooms</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            Annonce:   <select class="nice-select" id="nbbedrooms" onchange="myFunction3()">
+                                                <option>1 </option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
@@ -242,8 +240,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Bathrooms</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            Annonce:      <select class="nice-select" id="nbbathrooms" onchange="myFunction4()">
+                                                <option>1 </option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
@@ -257,8 +255,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Kitchen</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            Annonce:    <select class="nice-select" id="nbkitchen" onchange="myFunction5()">
+                                                <option>1 </option>
                                                 <option>2</option>
                                                 <option>3</option>
                                             </select>
@@ -266,8 +264,8 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Garage</label>
-                                            <select class="nice-select">
-                                                <option>1</option>
+                                            Annonce:    <select class="nice-select" id="nbgarage" onchange="myFunction6()">
+                                                <option>1 </option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
@@ -276,7 +274,7 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Cooling</label>
-                                            <select class="nice-select">
+                                            Annonce:   <select class="nice-select" id="choix" onchange="myFunction7()">
                                                 <option>Yes</option>
                                                 <option>No</option>
                                             </select>
@@ -284,7 +282,7 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Heating</label>
-                                            <select class="nice-select">
+                                            Annonce:   <select class="nice-select" id="choix2" onchange="myFunction8()">
                                                 <option>Yes</option>
                                                 <option>No</option>
                                             </select>
@@ -292,7 +290,7 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Sewer</label>
-                                            <select class="nice-select">
+                                            Annonce:  <select class="nice-select" id="choix3" onchange="myFunction9()" > 
                                                 <option>Yes</option>
                                                 <option>No</option>
                                             </select>
@@ -300,15 +298,15 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Water</label>
-                                            <select class="nice-select">
-                                                <option>Yes</option>
+                                            Annonce:  <select class="nice-select" id="choix4" onchange="myFunction10()" >
+                                                <option>Yes </option>
                                                 <option>No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-12 mb-30">
                                             <h4>Other Feature</h4>
-                                            <ul class="other-features">
+                                            <ul class="other-features" id="chekbox">
                                                 <li><input type="checkbox" id="air_condition"><label for="air_condition">Air Conditioning</label></li>
                                                 <li><input type="checkbox" id="bedding"><label for="bedding">Bedding</label></li>
                                                 <li><input type="checkbox" id="balcony"><label for="balcony">Balcony</label></li>
@@ -328,11 +326,11 @@
                                             <div class="row mt-20">
                                                 <div class="col-lg-6 col-12 mb-30">
                                                     <label for="map_address">Google Maps Address</label>
-                                                    <input type="text" id="map_address">
+                                                    Annonce:  <input type="text" id="map_address">
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-12 mb-30">
                                                     <label for="map_lan">Latitude</label>
-                                                    <input type="text" id="map_lan">
+                                                    Annonce:  <input type="text" id="map_lan">
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 col-12 mb-30">
                                                     <label for="map_long">Longitude</label>
@@ -342,7 +340,7 @@
                                         </div>
 
                                         <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15">
-                                            <button class="property-submit btn">Add Property</button>
+                                            <button onclick="addAnnonce" class="property-submit btn">Add Property </button>
                                         </div>
                                     </div>
                                 </form>
@@ -458,6 +456,7 @@
 <script src="assets/js/map-place.js"></script>
 <script src="assets/js/main.js"></script>
 
+<script src="crudannonce.js"></script>
 </body>
 
 
