@@ -137,20 +137,20 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Rental Period</label>
-                                            Annonce: <select class="nice-select" id="rentalPeriod" onchange="myFunction()">
-                                                <option>Daily </option>
-                                                <option>Weekly</option>
-                                                <option>Monthly</option>
-                                                <option>Yearly</option>
+                                            Annonce: <select class="nice-select" id="rentalPeriod">
+                                                <option value="A">Daily </option>
+                                                <option value="B">Weekly</option>
+                                                <option value="C">Monthly</option>
+                                                <option value="D">Yearly</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Type</label>
-                                            <select class="nice-select" id="typemaison" onchange="myFunction1()">
-                                                <option>Apartment </option>
+                                            <select class="nice-select" id="typemaison">
+                                                <option value="A">Apartment </option>
                                                 
-                                                <option>House</option>
+                                                <option value="H">House</option>
                                                 
                                             </select>
                                         </div>
@@ -165,8 +165,8 @@
                                             Annonce:  <input type="text" id="property_area">
                                         </div>
 
-                                        <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15">
-                                            <a href="#gallery_video" data-toggle="tab" class="btn">Next</a>
+                                        <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15" >
+                                            <a href="#gallery_video" data-toggle="tab" class="btn" >Next</a>
                                         </div>
                                     </div>
                                 </form>
@@ -210,97 +210,94 @@
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Building age</label>
-                                            Annonce:    <select class="nice-select" id="buildage" onchange="myFunction2()">
-                                                <option>1 Years </option>
-                                                <option>2 Years</option>
-                                                <option>3 Years</option>
-                                                <option>4 Years</option>
-                                                <option>5 Years</option>
-                                                <option>6 Years</option>
-                                                <option>7 Years</option>
-                                                <option>8 Years</option>
-                                                <option>9 Years</option>
+                                            Annonce:    <select class="nice-select" id="buildage">
+                                                <option value="1">1 Years </option>
+                                                <option value="2">2 Years</option>
+                                                <option value="3">3 Years</option>
+                                                <option value="4">4 Years</option>
+                                                <option value="5">5 Years</option>
+                                                <option value="6">6 Years</option>
+                                                <option value="7">7 Years</option>
+                                                <option value="8">8 Years</option>
+                                                <option value="9">9 Years</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Bedrooms</label>
-                                            Annonce:   <select class="nice-select" id="nbbedrooms" onchange="myFunction3()">
-                                                <option>1 </option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
+                                            Annonce:   <select class="nice-select" id="nbbedrooms">
+                                                <option value="1">1 </option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Bathrooms</label>
-                                            Annonce:      <select class="nice-select" id="nbbathrooms" onchange="myFunction4()">
-                                                <option>1 </option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
+                                            Annonce:      <select class="nice-select" id="nbbathrooms" >
+                                                <option value="o1">1 </option>
+                                                <option value="o2">2</option>
+                                                <option value="o3">3</option>
+                                                <option value="o4">4</option>
+                                                <option value="o5">5</option>
+                                                
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Kitchen</label>
-                                            Annonce:    <select class="nice-select" id="nbkitchen" onchange="myFunction5()">
-                                                <option>1 </option>
-                                                <option>2</option>
-                                                <option>3</option>
+                                            Annonce:    <select class="nice-select" id="nbkitchen">
+                                                <option value="k1">1 </option>
+                                                <option value="k2">2</option>
+                                                <option value="k3">3</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Garage</label>
-                                            Annonce:    <select class="nice-select" id="nbgarage" onchange="myFunction6()">
-                                                <option>1 </option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            Annonce:    <select class="nice-select" id="nbgarage" >
+                                                <option value="nb1">1 </option>
+                                                <option value="nb2">2</option>
+                                                <option value="nb3">3</option>
+                                                <option value="nb4">4</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Cooling</label>
-                                            Annonce:   <select class="nice-select" id="choix" onchange="myFunction7()">
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                            Annonce:   <select class="nice-select" id="choix" >
+                                                <option value="y">Yes</option>
+                                                <option value="n">No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Heating</label>
-                                            Annonce:   <select class="nice-select" id="choix2" onchange="myFunction8()">
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                            Annonce:   <select class="nice-select" id="choix2" >
+                                                <option value="y1">Yes</option>
+                                                <option value="n1">No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Sewer</label>
-                                            Annonce:  <select class="nice-select" id="choix3" onchange="myFunction9()" > 
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                            Annonce:  <select class="nice-select" id="choix3"  > 
+                                                <option value="y">Yes</option>
+                                                <option value="n">No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 col-12 mb-30">
                                             <label>Water</label>
-                                            Annonce:  <select class="nice-select" id="choix4" onchange="myFunction10()" >
-                                                <option>Yes </option>
-                                                <option>No</option>
+                                            Annonce:  <select class="nice-select" id="choix4"  >
+                                                <option value="y">Yes </option>
+                                                <option value="n">No</option>
                                             </select>
                                         </div>
 
@@ -339,7 +336,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15">
+                                        <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15" id="p">
                                             <button onclick="addAnnonce" class="property-submit btn">Add Property </button>
                                         </div>
                                     </div>
