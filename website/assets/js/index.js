@@ -193,23 +193,44 @@ function carTest() {
     var login = document.getElementById("login").value;
     var password = document.getElementById("password").value;
     let listUser = JSON.parse(localStorage.getItem("userList")); 
-    let test = false;
   
     for (i = 0; i < listUser.length; i++) {
-      if (login == listUser[i].username && password == listUser[i].password) {
+      // debugger
+      if(login == listUser[i].username && password == listUser[i].password && listUser[i].isAdmin == true){
         localStorage.setItem("loggedUser", JSON.stringify(listUser[i])); 
-        test = true;
-        window.location = "./indexconnected.html";
-        break;
-      }else if(login == "admin" && password == "admin"){
         window.location = "../Adminkerya/index.html";
+
+        break;
+      } else if (login == listUser[i].username && password == listUser[i].password) {
+        localStorage.setItem("loggedUser", JSON.stringify(listUser[i])); 
+        window.location = "./home.html";
+        
         break;
       }
     }
-    if (test) {
-      console.log("mriguel");
-    } else {
-      console.log("no");
-    }
+    
   }
+
+  /***
+   *  checkLogin test
+   */
   
+function checkLogin() {
+  const loggedUser = localStorage.getItem('loggedUser');
+
+  if (!loggedUser) { //loggedUser == undefined
+    window.location ='../website/login-register.html';
+  }
+}
+
+ /***
+   *  logOut test
+   */
+  
+  function logOut() {
+
+    localStorage.removeItem('loggedUser');
+    document.location = '../website/index.html'
+  
+    
+  }

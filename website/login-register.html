@@ -114,11 +114,11 @@
                     
                     <div class="tab-content">
                         <div id="login-tab" class="tab-pane show active">
-                            <form action="#">
+                            <form id="loginForm" onsubmit="logIn()" action="#" >
                                 <div class="row">
                                     <div class="col-12 mb-30"><input id="login" type="text" placeholder="User Name" required></div>
                                     <div class="col-12 mb-30"><input id="password" type="password" placeholder="Password" required></div>
-                                    <div class="col-12 mb-30"><button class="btn" onclick="logIn()">Login</button></div>
+                                    <div class="col-12 mb-30"><button class="btn" type="submit">Login</button></div>
 
                                     <div class="col-12 d-flex justify-content-between">
                                         <span>New User to kerya.tn ?&nbsp; <a class="register-toggle" href="#register-tab">Register!</a></span>
