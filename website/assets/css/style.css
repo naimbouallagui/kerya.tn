@@ -4834,3 +4834,11 @@ header.header {
 
     }
 
+.dropdown-menu{
+  padding: 10px;
+  margin: 5px
+}
+/* .dropdown-menu-right {
+  right: 0;
+  left: auto;
+} */

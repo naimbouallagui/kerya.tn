@@ -34,7 +34,7 @@
                     <!--Logo start-->
                     <div class="col mt-10 mb-10">
                         <div class="logo">
-                            <a href="index.html"><img class="logo-img" src="assets/images/others/logo.png" alt=""></a>
+                            <a href="home.html"><img class="logo-img" src="assets/images/others/logo.png" alt=""></a>
                         </div>
                     </div>
                     <!--Logo end-->
@@ -43,7 +43,7 @@
                     <div class="col d-none d-lg-flex">
                         <nav class="main-menu">
                             <ul>
-                                <li class="has-dropdown"><a href="index.html">Home</a>
+                                <li class="has-dropdown"><a href="home.html">Home</a>
                                   
                                 </li>
                                 <li class="has-dropdown"><a href="#properties">Properties</a>
@@ -63,7 +63,12 @@
                     <!--User start-->
                     <div class="col mr-sm-50 mr-xs-50">
                         <div class="header-user">
-                            <a href="login-register.html" class="user-toggle"><i class="pe-7s-user"></i><span>Login or Register</span></a>
+                            <a href="#" class="user-toggle dropdown-toggle" data-toggle="dropdown" >Logout</a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="add-properties.html">Add Properties</a></li>
+                                    <li><a href="profile.html">Setting</a></li>
+                                    <li><a href="#"  onclick="logOut()">Logout</a></li>
+                                  </ul>
                         </div>
                     </div>
                     <!--User end-->
@@ -90,8 +95,8 @@
                 <div class="col">
                     <h1 class="page-banner-title">Properties</h1>
                     <ul class="page-breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Properties Left Sidebar</li>
+                        <li><a href="home.html">Home</a></li>
+                        <li class="active">Properties</li>
                     </ul>
                 </div>
             </div>
@@ -591,72 +596,7 @@
                     </div>
                     <!--Sidebar end-->
                     
-                    <!--Sidebar start-->
-                    <div class="sidebar">
-                        <h4 class="sidebar-title"><span class="text">Feature Property</span><span class="shape"></span></h4>
-                        
-                        <!--Sidebar Property start-->
-                        <div class="sidebar-property-list">
-                            
-                            <div class="sidebar-property">
-                                <div class="image">
-                                    <span class="type">For Rent</span>
-                                    <a href="single-properties.html"><img src="assets/images/property/sidebar-property-1.jpg" alt=""></a>
-                                </div>
-                                <div class="content">
-                                    <h5 class="title"><a href="single-properties.html">Friuli-Venezia Giulia</a></h5>
-                                    <span class="location"><img src="assets/images/icons/marker.png" alt="">568 E 1st Ave, Miami</span>
-                                    <span class="price">$550 <span>Month</span></span>
-                                </div>
-                            </div>
-                            
-                            <div class="sidebar-property">
-                                <div class="image">
-                                    <span class="type">For Sale</span>
-                                    <a href="single-properties.html"><img src="assets/images/property/sidebar-property-2.jpg" alt=""></a>
-                                </div>
-                                <div class="content">
-                                    <h5 class="title"><a href="single-properties.html">Marvel de Villa</a></h5>
-                                    <span class="location"><img src="assets/images/icons/marker.png" alt="">450 E 1st Ave, New Jersey</span>
-                                    <span class="price">$2550</span>
-                                </div>
-                            </div>
-                            
-                            <div class="sidebar-property">
-                                <div class="image">
-                                    <span class="type">For Rent</span>
-                                    <a href="single-properties.html"><img src="assets/images/property/sidebar-property-3.jpg" alt=""></a>
-                                </div>
-                                <div class="content">
-                                    <h5 class="title"><a href="single-properties.html">Ruposi Bangla Cottage</a></h5>
-                                    <span class="location"><img src="assets/images/icons/marker.png" alt="">215 L AH Rod, California</span>
-                                    <span class="price">$550 <span>Month</span></span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <!--Sidebar Property end-->
-                        
-                    </div>
-                    <div class="sidebar">
-                        <h4 class="sidebar-title"><span class="text">Popular Tags</span><span class="shape"></span></h4>
-                        
-                        <!--Sidebar Tags start-->
-                        <div class="sidebar-tags">
-                            <a href="#">Houses</a>
-                            <a href="#">Real Home</a>
-                            <a href="#">Baths</a>
-                            <a href="#">Beds</a>
-                            <a href="#">Garages</a>
-                            <a href="#">Family</a>
-                            <a href="#">Real Estates</a>
-                            <a href="#">Properties</a>
-                            <a href="#">Location</a>
-                            <a href="#">Price</a>
-                        </div>
-                        <!--Sidebar Tags end-->
-                    
-                    </div>
+                   
             
                 </div>
                 

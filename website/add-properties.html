@@ -34,7 +34,7 @@
                     <!--Logo start-->
                     <div class="col mt-10 mb-10">
                         <div class="logo">
-                            <a href="index.html"><img class="logo-img" src="assets/images/others/logo.png" alt=""></a>
+                            <a href="home.html"><img class="logo-img" src="assets/images/others/logo.png" alt=""></a>
                         </div>
                     </div>
                     <!--Logo end-->
@@ -43,7 +43,7 @@
                     <div class="col d-none d-lg-flex">
                         <nav class="main-menu">
                             <ul>
-                                <li class="has-dropdown"><a href="index.html">Home</a>
+                                <li class="has-dropdown"><a href="home.html">Home</a>
                                   
                                 </li>
                                 <li class="has-dropdown"><a href="#properties">Properties</a>
@@ -63,7 +63,12 @@
                     <!--User start-->
                     <div class="col mr-sm-50 mr-xs-50">
                         <div class="header-user">
-                            <a href="login-register.html" class="user-toggle"><i class="pe-7s-user"></i><span>Login or Register</span></a>
+                            <a href="#" class="user-toggle dropdown-toggle" data-toggle="dropdown" >Logout</a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="add-properties.html">Add Properties</a></li>
+                                    <li><a href="profile.html">Setting</a></li>
+                                    <li><a href="#"  onclick="logOut()">Logout</a></li>
+                                  </ul>
                         </div>
                     </div>
                     <!--User end-->
@@ -89,7 +94,7 @@
                 <div class="col">
                     <h1 class="page-banner-title">Add Properties</h1>
                     <ul class="page-breadcrumb">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="home.html">Home</a></li>
                         <li class="active">Add Properties</li>
                     </ul>
                 </div>
@@ -457,6 +462,10 @@
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/map-place.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/index.js"></script>
+<script type="text/javascript">
+    checkLogin();
+</script>
 
 </body>
 
