@@ -77,7 +77,6 @@
                         </div>
                     </div>
                     <!--Mobile Menu end-->
-
                 </div>
             </div>
         </header>
@@ -138,25 +137,24 @@
                                             <div class="col-md-4 col-12 mb-30">
                                                 <label>Rental Period</label> Annonce:
                                                 <select class="nice-select" id="rentalPeriod">
-                                                <option value="A">Daily </option>
-                                                <option value="B">Weekly</option>
-                                                <option value="C">Monthly</option>
-                                                <option value="D">Yearly</option>
+                                                <option value="daily">Daily </option>
+                                                <option value="weekly">Weekly</option>
+                                                <option value="monthly">Monthly</option>
+                                                <option value="yearly">Yearly</option>
                                             </select>
                                             </div>
 
                                             <div class="col-md-4 col-12 mb-30">
                                                 <label>Type</label>
                                                 <select class="nice-select" id="typeMaison">
-                                                <option value="A">Apartment </option>
-                                                
-                                                <option value="H">House</option>
+                                                <option value="apartment">Apartment </option>
+                                                <option value="house">House</option>
                                                 
                                             </select>
                                             </div>
 
                                             <div class="col-md-4 col-12 mb-30">
-                                                <label for="property_price">Price <span>(USD)</span></label> Annonce: <input type="text" id="property_price">
+                                                <label id="price" for="property_price">Price <span>(USD)</span></label> Annonce: <input type="text" id="property_price">
                                             </div>
 
                                             <div class="col-md-4 col-12 mb-30">
@@ -205,30 +203,12 @@
                                             </div>
 
                                             <div class="col-md-4 col-12 mb-30">
-                                                <label>Building age</label> Annonce: <select class="nice-select" id="buildage">
-                                                <option value="1">1 Years </option>
-                                                <option value="2">2 Years</option>
-                                                <option value="3">3 Years</option>
-                                                <option value="4">4 Years</option>
-                                                <option value="5">5 Years</option>
-                                                <option value="6">6 Years</option>
-                                                <option value="7">7 Years</option>
-                                                <option value="8">8 Years</option>
-                                                <option value="9">9 Years</option>
-                                            </select>
-                                            </div>
-
-                                            <div class="col-md-4 col-12 mb-30">
                                                 <label>Bedrooms</label> Annonce: <select class="nice-select" id="nbbedrooms">
                                                 <option value="1">1 </option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
                                             </select>
                                             </div>
 
@@ -243,65 +223,14 @@
                                             </select>
                                             </div>
 
-                                            <div class="col-md-4 col-12 mb-30">
-                                                <label>Kitchen</label> Annonce: <select class="nice-select" id="nbkitchen">
-                                                <option value="k1">1 </option>
-                                                <option value="k2">2</option>
-                                                <option value="k3">3</option>
-                                            </select>
-                                            </div>
-
-                                            <div class="col-md-4 col-12 mb-30">
-                                                <label>Garage</label> Annonce: <select class="nice-select" id="nbgarage">
-                                                <option value="nb1">1 </option>
-                                                <option value="nb2">2</option>
-                                                <option value="nb3">3</option>
-                                                <option value="nb4">4</option>
-                                            </select>
-                                            </div>
-
-                                            <div class="col-md-4 col-12 mb-30">
-                                                <label>Cooling</label> Annonce: <select class="nice-select" id="choix">
-                                                <option value="y">Yes</option>
-                                                <option value="n">No</option>
-                                            </select>
-                                            </div>
-
-                                            <div class="col-md-4 col-12 mb-30">
-                                                <label>Heating</label> Annonce: <select class="nice-select" id="choix2">
-                                                <option value="y1">Yes</option>
-                                                <option value="n1">No</option>
-                                            </select>
-                                            </div>
-
-                                            <div class="col-md-4 col-12 mb-30">
-                                                <label>Sewer</label> Annonce: <select class="nice-select" id="choix3"> 
-                                                <option value="y">Yes</option>
-                                                <option value="n">No</option>
-                                            </select>
-                                            </div>
-
-                                            <div class="col-md-4 col-12 mb-30">
-                                                <label>Water</label> Annonce: <select class="nice-select" id="choix4">
-                                                <option value="y">Yes </option>
-                                                <option value="n">No</option>
-                                            </select>
-                                            </div>
-
                                             <div class="col-12 mb-30">
                                                 <h4>Other Feature</h4>
                                                 <ul class="other-features" id="chekbox">
                                                     <li><input type="checkbox" id="air_condition"><label for="air_condition">Air Conditioning</label></li>
-                                                    <li><input type="checkbox" id="bedding"><label for="bedding">Bedding</label></li>
                                                     <li><input type="checkbox" id="balcony"><label for="balcony">Balcony</label></li>
                                                     <li><input type="checkbox" id="cable_tv"><label for="cable_tv">Cable TV</label></li>
                                                     <li><input type="checkbox" id="internet"><label for="internet">Internet</label></li>
                                                     <li><input type="checkbox" id="parking"><label for="parking">Parking</label></li>
-                                                    <li><input type="checkbox" id="lift"><label for="lift">Lift</label></li>
-                                                    <li><input type="checkbox" id="pool"><label for="pool">Pool</label></li>
-                                                    <li><input type="checkbox" id="dishwasher"><label for="dishwasher">Dishwasher</label></li>
-                                                    <li><input type="checkbox" id="toaster"><label for="toaster">Toaster</label></li>
-                                                    <li><input type="checkbox" id="gym"><label for="gym">Gym</label></li>
                                                 </ul>
                                             </div>
 

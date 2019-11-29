@@ -18,17 +18,10 @@ function addAnnonce() {
         periode: document.getElementById("rentalPeriod").value,
         descr: document.getElementById("property_description").value,
         type: document.getElementById("typeMaison").value,
-        buildage: document.getElementById("buildage").value,
+        price: document.getElementById("price").value,
         nbbedrooms: document.getElementById("nbbedrooms").value,
         nbbathrooms: document.getElementById("nbbathrooms").value,
-        nbkitchen: document.getElementById("nbkitchen").value,
-        nbgarage: document.getElementById("nbgarage").value,
-        choix: document.getElementById("choix").value,
-        choix2: document.getElementById("choix2").value,
-        choix3: document.getElementById("choix3").value,
-        choix4: document.getElementById("choix4").value,
-        map: document.getElementById("map_address").value,
-
+        features: document.getElementById("chekbox").value,
     };
     // push the structure and setitem as a string
     listAnnonce.push(Annonce);
