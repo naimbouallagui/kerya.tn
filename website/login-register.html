@@ -114,7 +114,7 @@
                     
                     <div class="tab-content">
                         <div id="login-tab" class="tab-pane show active">
-                            <form id="loginForm" onsubmit="logIn()" action="#" >
+                            <form id="loginForm" onsubmit="logIn(event)" >
                                 <div class="row">
                                     <div class="col-12 mb-30"><input id="login" type="text" placeholder="User Name" required></div>
                                     <div class="col-12 mb-30"><input id="password" type="password" placeholder="Password" required></div>
@@ -127,12 +127,13 @@
                             </form>
                         </div>
                         <div id="register-tab" class="tab-pane">
-                            <form action="#">
+                            <form  onsubmit="event.preventDefault()">
                                 <div class="row">
                                     <div class="col-12 mb-30"><input id="firstname" type="text" placeholder="First Name" onblur="firstName()" required></div>
                                     <div class="col-12 mb-30"><input id="lastname" type="text" placeholder="Last Name" onblur="lastName()" required></div>
                                     <div class="col-12 mb-30"><input id="mail" type="email" placeholder="Email" onblur="isMailConfirmed()" required></div>
                                     <div class="col-12 mb-30"><input id="number" type="text" placeholder="Phone" onblur="validNumber()" required></div>
+                                    <div class="col-12 mb-30"><input id="adress" type="text" placeholder="Adress" onblur="validAdress()" required></div>
                                     <div class="col-12 mb-30"><input id="username" type="text" placeholder="User Name" onblur="userName()" required></div>
                                     <div class="col-12 mb-30"><input id="psw" type="password" placeholder="Password" onblur="passwordTest()" required></div>
                                     <div class="col-12 mb-30"><input id="paswc" type="password" placeholder="Confirm Password" onblur="confirmPassword()" required></div>
