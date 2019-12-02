@@ -280,3 +280,16 @@ listAnnonce.forEach((annonce)=>{
 })
 
 }
+function fillProfile() {
+  const loggedUser=JSON.parse(localStorage.loggedUser)
+  $('#f_name').val(loggedUser.firstname)//input or select
+  $('#l_name').val(loggedUser.lastname)//input or select
+  $('#personal_number').val(loggedUser.number)//input or select
+  $('#personal_email').val(loggedUser.email)//input or select
+  $('#username').val(loggedUser.username)//input or select
+  $('#personal_address').val(loggedUser.adress)//input or select
+  $('#personal_password').val(loggedUser.password)//input or select
+//$('#personal_address').html(loggedUser.adress)// textzreza
+//$('#username').html(loggedUser.username)// textzreza
+  
+}
