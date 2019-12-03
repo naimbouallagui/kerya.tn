@@ -245,30 +245,31 @@ function fillProperties() {
         $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
+<<<<<<< HEAD
               <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
+=======
+              <a href="#"><img src="${annonce.gallery[0]}" alt="${annonce.title}" style="height: 200px;"></a>
+>>>>>>> 33f7d25d01d81768dbeeb17937fcd353e3acaca7
               <ul class="property-feature">
                   <li>
                       <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
                   </li>
                   <li>
-                      <span class="bed"><img src="assets/images/icons/bed.png" alt="">6</span>
+                      <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce.nbbedrooms}</span>
                   </li>
                   <li>
-                      <span class="bath"><img src="assets/images/icons/bath.png" alt="">4</span>
-                  </li>
-                  <li>
-                      <span class="parking"><img src="assets/images/icons/parking.png" alt="">3</span>
+                      <span class="bath"><img src="assets/images/icons/bath.png" alt="">${annonce.nbbathrooms}</span>
                   </li>
               </ul>
           </div>
           <div class="content">
               <div class="left">
-                  <h3 class="title"><a href="single-properties.html">${annonce.title}</a></h3>
-                  <span class="location"><img src="assets/images/icons/marker.png" alt="">${annonce.adress}</span>
+                  <h3 class="title"><a href="#">${annonce.title}</a></h3>
+                  <span class="location"><img src="assets/images/icons/marker.png" alt="">${annonce.Adress}</span>
               </div>
               <div class="right">
                   <div class="type-wrap">
-                      <span class="price">${annonce.price}<span>M</span></span>
+                      <span class="price">${annonce.price} DT<span>${annonce.periode}</span></span>
                       <span class="type">For Rent</span>
                   </div>
               </div>
