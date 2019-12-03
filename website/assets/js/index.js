@@ -245,11 +245,7 @@ function fillProperties() {
         $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
-<<<<<<< HEAD
-              <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
-=======
               <a href="#"><img src="${annonce.gallery[0]}" alt="${annonce.title}" style="height: 200px;"></a>
->>>>>>> 33f7d25d01d81768dbeeb17937fcd353e3acaca7
               <ul class="property-feature">
                   <li>
                       <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
