@@ -245,7 +245,7 @@ function fillProperties() {
         $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
-              <a href="single-properties.html"><img src="${annonce.gallery[0]}" alt="${annonce.title}" style="height: 200px;"></a>
+              <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
               <ul class="property-feature">
                   <li>
                       <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
@@ -287,7 +287,7 @@ function displaySearchPropreties() {
         $('#listsearch').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
-              <a href="single-properties.html"><img src="${listSearch.gallery[0]}" alt="${listSearch.title}" style="height: 200px;"></a>
+              <a href="single-properties.html"><img src="assets/images/gallery/${listSearch.gallery}" alt="${listSearch.title}" style="height: 200px;"></a>
               <ul class="property-feature">
                   <li>
                       <span class="area"><img src="assets/images/icons/area.png" alt="">${listSearch.price} Dt</span>

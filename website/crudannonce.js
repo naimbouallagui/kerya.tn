@@ -80,7 +80,7 @@ function addAnnonce() {
         features: {
             airc: document.getElementById("air_condition").checked
         },
-        gallery: gallery
+        gallery: document.getElementById('image').files[0].name
     };
     // push the structure and setitem as a string
 
@@ -91,7 +91,8 @@ function addAnnonce() {
     console.log(localStorage.getItem("annonce"));
 }
 
-function searchAnn() {
+
+function searchAnnC() {
     var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
     var citeapp = document.getElementById("cite").value;
     var rent1 = document.getElementById("rent").value;
@@ -100,25 +101,25 @@ function searchAnn() {
     var nbBath = document.getElementById("bathrooms").value;
     var test = false;
     let result = []
-
+    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     for (i = 0; i < listAnnonce.length; i++) {
-        console.log(type, listAnnonce[i].type);
-
         if ((citeapp === listAnnonce[i].Adress) &&
             (type === listAnnonce[i].type)) {
-
             // && nbBedroom == listAnnonce[i].nbbedrooms && nbBath == listAnnonce[i].nbbathrooms)
             result.push(listAnnonce[i]);
-            console.log(listAnnonce[i]);
         }
     }
+    // debugger : test sur chaque ligne 
+    if (!loggedUser) {
+        localStorage.setItem("listSearch", JSON.stringify(result));
+        window.location = "../website/properties.html";
+    } else {
+        localStorage.setItem("listSearch", JSON.stringify(result));
+        window.location = "../website/propertiesc.html";
 
-    localStorage.setItem("listSearch", JSON.stringify(result));
-    window.location = "../website/properties.html";
+    }
     test = true;
-
 }
-
 
 
 function editProfile() {
