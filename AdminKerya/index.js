@@ -116,7 +116,7 @@ function removeProperty(id) {
   const newListAd = listAd.filter(function (item) {
     return item.id !== id;
   })
-  debugger
+  
   localStorage.setItem('annonce', JSON.stringify(newListAd))
   location.reload()
 }
