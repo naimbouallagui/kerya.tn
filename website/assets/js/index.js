@@ -242,6 +242,9 @@ function logOut() {
 function fillProperties() {
     var listAnnonce = JSON.parse(localStorage.getItem('annonce'))
     listAnnonce.forEach((annonce) => {
+        if (annonce.checked === "Activated") {
+            
+        
         $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
@@ -265,15 +268,14 @@ function fillProperties() {
               </div>
               <div class="right">
                   <div class="type-wrap">
-                      <span class="price">${annonce.price} DT<span>${annonce.periode}</span></span>
+                      <span class="price">${annonce.price}DT<span>${annonce.periode}</span></span>
                       <span class="type">For Rent</span>
                   </div>
               </div>
           </div>
       </div>
   </div>`))
-
-        return true
+}
     })
 
 }
