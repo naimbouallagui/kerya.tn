@@ -132,7 +132,7 @@ function activate(id) {
      
   }
   localStorage.setItem("annonce", JSON.stringify(annonceList));
-  
+  location.reload();
 }
 function deny(id) {
   let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];

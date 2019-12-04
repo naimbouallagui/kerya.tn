@@ -454,3 +454,45 @@ function fillProfile() {
         //$('#username').html(loggedUser.username)// textzreza
 
 }
+
+function fillCarousel(){
+    let listCarousel = JSON.parse(localStorage.annonce)
+    let html = '';
+    for (let i = 0; i < listCarousel.length; i++) {
+        const element = listCarousel[i];
+        if(element.checked === 'Activated'){
+            html += `<div class="property-item col">
+            <div class="property-inner">
+                <div class="image">
+                    <a href="#"><img src="assets/images/gallery/${element.gallery}" alt=""></a>
+                    <ul class="property-feature">
+                        <li>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${element.price}DT</span>
+                        </li>
+                        <li>
+                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${element.nbbedrooms}</span>
+                        </li>
+                        <li>
+                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${element.nbbathrooms}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="left">
+                        <h3 class="title"><a href="single-properties.html">${element.title}</a></h3>
+                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${element.Adress}</span>
+                    </div>
+                    <div class="right">
+                        <div class="type-wrap">
+                            <span class="price">${element.price}<span>${element.periode}</span></span>
+                            <span class="type">${element.rent}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+        }
+        
+    }
+    document.getElementById('carousel-property').innerHTML = html
+}
