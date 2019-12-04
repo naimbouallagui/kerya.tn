@@ -80,13 +80,14 @@ function addAnnonce() {
         features: {
             airc: document.getElementById("air_condition").checked
         },
-        gallery: document.getElementById('image').files[0].name
+        gallery: document.getElementById('image').files[0].name,
+        checked:  'inProgress'
     };
     // push the structure and setitem as a string
 
     listAnnonce.push(Annonce);
     localStorage.setItem("annonce", JSON.stringify(listAnnonce));
-    window.location = "./profile.html";
+    window.location = "./add.html";
 
     console.log(localStorage.getItem("annonce"));
 }
