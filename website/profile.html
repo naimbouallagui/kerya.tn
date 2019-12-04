@@ -269,8 +269,9 @@
     <script src="assets/js/index.js"></script>
     <script type="text/javascript">
         checkLogin();
-        fillProperties();
+        fillProperties(JSON.parse(localStorage.getItem('loggedUser')));
         fillProfile();
+        
     </script>
 
 </body>

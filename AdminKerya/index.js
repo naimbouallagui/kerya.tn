@@ -38,7 +38,7 @@ function listAnnonce() {
               </i>
               View
           </a>
-          <a class="btn btn-danger btn-sm" href="#">
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce[i].id},'${annonce[i].title}')">
               <i class="fas fa-trash">
               </i>
               Delete
@@ -72,6 +72,7 @@ function modalDisplay(id) {
           <h3>Address :</h3><p> ${annonce[i].Adress}</p>
           <h3>Periode : </h3><p>${annonce[i].periode}</p>
           <h3>Price : </h3><p>${annonce[i].price}/DT</p>
+          <h3>Image : </h3><img src="../website/assets/images/gallery/${annonce[i].gallery}" width="100%"/>
         </div>
         <div class="modal-footer" style="justify-content: center !important;">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -83,7 +84,42 @@ function modalDisplay(id) {
     }
     document.getElementById("modal_annonce").innerHTML = html;
 }
-
+function displayDelete(id,title) {
+      html = `<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"> remove property ${title}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3>Are you sure you want to remove this property? <br> ${title}</h3>
+        </div>
+        <div class="modal-footer" style="justify-content: center !important;">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="removeProperty(${id})">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById("modal_annonce").innerHTML = html;
+}
+function removeProperty(id) {
+  let listAd = JSON.parse(localStorage.getItem("annonce")) || [];
+  // const index = listAd.findIndex(function (item) {
+  //   return item.id == id;
+  // })
+  // listAd.splice(index, 1)
+  // filter method
+  const newListAd = listAd.filter(function (item) {
+    return item.id !== id;
+  })
+  
+  localStorage.setItem('annonce', JSON.stringify(newListAd))
+  location.reload()
+}
 function activate(id) {
     let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
     var annonce;
@@ -148,7 +184,7 @@ function listAnnonceActivated() {
               </i>
               View
           </a>
-          <a class="btn btn-danger btn-sm" href="#">
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce[i].id},'${annonce[i].title}')">
               <i class="fas fa-trash">
               </i>
               Delete
@@ -200,7 +236,7 @@ function listAnnonceDenied() {
               </i>
               View
           </a>
-          <a class="btn btn-danger btn-sm" href="#">
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce[i].id},'${annonce[i].title}')">
               <i class="fas fa-trash">
               </i>
               Delete

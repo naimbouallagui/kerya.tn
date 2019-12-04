@@ -81,7 +81,8 @@ function addAnnonce() {
             airc: document.getElementById("air_condition").checked
         },
         gallery: document.getElementById('image').files[0].name,
-        checked:  'inProgress'
+        checked:  'inProgress',
+        owner: JSON.parse(localStorage.loggedUser).id
     };
     // push the structure and setitem as a string
 

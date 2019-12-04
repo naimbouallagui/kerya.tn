@@ -239,9 +239,11 @@ function logOut() {
     document.location = "../website/index.html";
 }
 
-function fillProperties() {
+function fillProperties(loggedUser = null, checked="Activated") {
     var listAnnonce = JSON.parse(localStorage.getItem('annonce'))
     listAnnonce.forEach((annonce) => {
+        if (loggedUser===null && annonce.checked === checked) {
+            
         $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
@@ -265,20 +267,53 @@ function fillProperties() {
               </div>
               <div class="right">
                   <div class="type-wrap">
-                      <span class="price">${annonce.price} DT<span>${annonce.periode}</span></span>
+                      <span class="price">${annonce.price}DT<span>${annonce.periode}</span></span>
                       <span class="type">For Rent</span>
                   </div>
               </div>
           </div>
       </div>
   </div>`))
-
-        return true
+}
+if (loggedUser && loggedUser.id === annonce.owner && annonce.checked === checked) {
+            
+    $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
+  <div class="property-inner">
+      <div class="image">
+          <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
+          <ul class="property-feature">
+              <li>
+                  <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
+              </li>
+              <li>
+                  <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce.nbbedrooms}</span>
+              </li>
+              <li>
+                  <span class="bath"><img src="assets/images/icons/bath.png" alt="">${annonce.nbbathrooms}</span>
+              </li>
+          </ul>
+      </div>
+      <div class="content">
+          <div class="left">
+              <h3 class="title"><a href="#">${annonce.title}</a></h3>
+              <span class="location"><img src="assets/images/icons/marker.png" alt="">${annonce.Adress}</span>
+          </div>
+          <div class="right">
+              <div class="type-wrap">
+                  <span class="price">${annonce.price}DT<span>${annonce.periode}</span></span>
+                  <span class="type">For Rent</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>`))
+}
     })
 
 }
 
 function displaySearchPropreties() {
+
     var list = JSON.parse(localStorage.getItem("listSearch"));
 
     list.forEach((listSearch) => {
