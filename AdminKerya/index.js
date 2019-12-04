@@ -1,8 +1,8 @@
 function listAnnonce() {
-  let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
-  // let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-  // var contain a html table
-  let html = ` <table id="annonce_table">
+    let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
+    // let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    // var contain a html table
+    let html = ` <table id="annonce_table">
   <thead>
     <tr>
         <th style="width: 1%">id</th>
@@ -12,11 +12,11 @@ function listAnnonce() {
         <th style="width: 20%"></th>
     </tr>
     </thead>`;
-  // loop and display the items of localstorage object
+    // loop and display the items of localstorage object
 
-  for (let i = 0; i < annonce.length; i++) {
-    if (annonce[i].checked === "inProgress") {
-      html += `  <tr>
+    for (let i = 0; i < annonce.length; i++) {
+        if (annonce[i].checked === "inProgress") {
+            html += `  <tr>
         <td style="width: 1%">${annonce[i].id}</td>
         <td style="width: 20%">${annonce[i].title}</td>
         <td style="width: 30%">${annonce[i].type}</td>
@@ -46,19 +46,19 @@ function listAnnonce() {
         </td>
     </tr>
     `;
+        }
     }
-  }
-  // add the rest tag of table
-  html += ` </table>`;
-  // inject html
-  document.getElementById("annonce_table").innerHTML = html;
+    // add the rest tag of table
+    html += ` </table>`;
+    // inject html
+    document.getElementById("annonce_table").innerHTML = html;
 }
 
 function modalDisplay(id) {
-  let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
-  for (let i = 0; i < annonce.length; i++) {
-    if (id == annonce[i].id) {
-      html = `<div class="modal fade" id="modal-default">
+    let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
+    for (let i = 0; i < annonce.length; i++) {
+        if (id == annonce[i].id) {
+            html = `<div class="modal fade" id="modal-default">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -79,42 +79,42 @@ function modalDisplay(id) {
       </div>
     </div>
   </div>`;
+        }
     }
-  }
-  document.getElementById("modal_annonce").innerHTML = html;
+    document.getElementById("modal_annonce").innerHTML = html;
 }
 
 function activate(id) {
-  let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
-  var annonce;
-  console.log( id);
-  for (i = 0; i < annonceList.length; i++) {
-    if (annonceList[i].id == id)
-    {
-    
-      annonceList[i].checked="Activated";}
-     
-  }
-  localStorage.setItem("annonce", JSON.stringify(annonceList));
-  
+    let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
+    var annonce;
+    console.log(id);
+    for (i = 0; i < annonceList.length; i++) {
+        if (annonceList[i].id == id) {
+
+            annonceList[i].checked = "Activated";
+        }
+
+    }
+    localStorage.setItem("annonce", JSON.stringify(annonceList));
+
 }
+
 function deny(id) {
-  let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
-  
-  for (i = 0; i < annonceList.length; i++) {
-    if (annonceList[i].id == id)
-    { annonceList[i].checked="Denied";}
-     
-  }
-  localStorage.setItem("annonce", JSON.stringify(annonceList));
-  
+    let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
+
+    for (i = 0; i < annonceList.length; i++) {
+        if (annonceList[i].id == id) { annonceList[i].checked = "Denied"; }
+
+    }
+    localStorage.setItem("annonce", JSON.stringify(annonceList));
+
 }
 
 function listAnnonceActivated() {
-  let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
-  // let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-  // var contain a html table
-  let html = ` <table id="annonce_table_validate">
+    let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
+    // let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    // var contain a html table
+    let html = ` <table id="annonce_table_validate">
   <thead>
     <tr>
         <th style="width: 1%">id</th>
@@ -124,13 +124,13 @@ function listAnnonceActivated() {
         <th style="width: 20%"></th>
     </tr>
     </thead>`;
-  // loop and display the items of localstorage object
+    // loop and display the items of localstorage object
 
-  for (let i = 0; i < annonce.length; i++) {
-    if (annonce[i].checked == "Activated") {
-     console.log( annonce[i]);
-     
-      html += `  <tr>
+    for (let i = 0; i < annonce.length; i++) {
+        if (annonce[i].checked == "Activated") {
+            console.log(annonce[i]);
+
+            html += `  <tr>
         <td style="width: 1%">${annonce[i].id}</td>
         <td style="width: 20%">${annonce[i].title}</td>
         <td style="width: 30%">${annonce[i].type}</td>
@@ -156,19 +156,19 @@ function listAnnonceActivated() {
         </td>
     </tr>
     `;
+        }
     }
-  }
-  // add the rest tag of table
-  html += ` </table>`;
-  // inject html
-  document.getElementById("annonce_table_validate").innerHTML = html;
+    // add the rest tag of table
+    html += ` </table>`;
+    // inject html
+    document.getElementById("annonce_table_validate").innerHTML = html;
 }
 
 function listAnnonceDenied() {
-  let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
-  // let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-  // var contain a html table
-  let html = ` <table id="annonce_table_denied">
+    let annonce = JSON.parse(localStorage.getItem("annonce")) || [];
+    // let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    // var contain a html table
+    let html = ` <table id="annonce_table_denied">
   <thead>
     <tr>
         <th style="width: 1%">id</th>
@@ -178,11 +178,11 @@ function listAnnonceDenied() {
         <th style="width: 20%"></th>
     </tr>
     </thead>`;
-  // loop and display the items of localstorage object
+    // loop and display the items of localstorage object
 
-  for (let i = 0; i < annonce.length; i++) {
-    if (annonce[i].checked == "Denied") {
-      html += `  <tr>
+    for (let i = 0; i < annonce.length; i++) {
+        if (annonce[i].checked == "Denied") {
+            html += `  <tr>
         <td style="width: 1%">${annonce[i].id}</td>
         <td style="width: 20%">${annonce[i].title}</td>
         <td style="width: 30%">${annonce[i].type}</td>
@@ -208,10 +208,10 @@ function listAnnonceDenied() {
         </td>
     </tr>
     `;
+        }
     }
-  }
-  // add the rest tag of table
-  html += ` </table>`;
-  // inject html
-  document.getElementById("annonce_table_denied").innerHTML = html;
+    // add the rest tag of table
+    html += ` </table>`;
+    // inject html
+    document.getElementById("annonce_table_denied").innerHTML = html;
 }

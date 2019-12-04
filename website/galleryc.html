@@ -22,7 +22,7 @@
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 </head>
 
-<body onload="displayReservation()">
+<body onload="reservationDisplay()">
 
     <div id="main-wrapper">
 
@@ -95,8 +95,8 @@
                     <div class="col">
                         <h1 class="page-banner-title">Properties</h1>
                         <ul class="page-breadcrumb">
-                            <li><a href="home.html">Home</a></li>
-                            <li class="active">Friuli-Venezia Giulia</li>
+                            <!-- <li><a href="home.html">Home</a></li> -->
+                            <!-- <li class="active">Friuli-Venezia Giulia</li> -->
                         </ul>
                     </div>
                 </div>
@@ -110,13 +110,13 @@
                 <div class="row">
 
                     <div class="col-lg-8 col-12 order-1 order-lg-2 mb-sm-50 mb-xs-50">
-                        <div class="row" id="reservation">
+                        <div class="row">
 
                             <!--Property start-->
-                            <!-- <div class="single-property col-12 mb-50">
-                                <div class="property-inner">
+                            <div class="single-property col-12 mb-50">
+                                <div class="property-inner" id="res">
 
-                                    <div class="head">
+                                    <!--  <div class="head">
                                         <div class="left">
                                             <h1 class="title">Friuli-Venezia Giulia</h1>
                                             <span class="location"><img src="assets/images/icons/marker.png" alt="">568 E 1st Ave, Miami</span>
@@ -205,9 +205,9 @@
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </div>-->
                                 </div>
-                            </div> -->
+                            </div>
                             <!--Property end-->
 
 
@@ -219,64 +219,25 @@
 
                         <!--Sidebar start-->
                         <div class="sidebar">
-                            <h4 class="sidebar-title"><span class="text">Search Property</span><span class="shape"></span></h4>
+                            <h4 class="sidebar-title"><span class="text">Reservation</span><span class="shape"></span></h4>
 
 
                             <!--Property Search start-->
                             <div class="property-search sidebar-property-search">
 
-                                <form action="#">
+                                <form action="#" id="reservationForm">
 
                                     <div>
-                                        <input type="text" placeholder="Location">
-                                    </div>
+                                        <input type="date" id="startdate">
+                                    </div> <br/>
 
                                     <div>
-                                        <select id="cite" class="nice-select">
-                                            <option>All Cities</option>
-                                            <option value="Ariana">Ariana</option>
-                                            <option value="Ben Arous">Ben Arous</option>
-                                            <option value="Tunis">Tunis</option>
-                                            <option value="Manouba">Manouba</option>
-                                        </select>
+                                        <input type="date" id="enddate">
                                     </div>
 
-                                    <div>
-                                        <select id="rent" class="nice-select">
-                                            <option value="rent">For Rent</option>
-                                        </select>
-                                    </div>
 
                                     <div>
-                                        <select id="typeann" class="nice-select">
-                                            <option>Type</option>
-                                            <option value="apartment">Apartment</option>
-                                            <option value="house">House</option>
-                                            
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <select id="bedrooms" class="nice-select">
-                                            <option>Bedrooms</option>
-                                            <option value="bed1">1</option>
-                                            <option value="bed2">2</option>
-                                            <option value="bed3">3</option>
-                                            <option value="bed4">4</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <select id="bathrooms" class="nice-select">
-                                            <option>Bathrooms</option>
-                                            <option value="bath1">1</option>
-                                            <option value="bath2">2</option>
-                                            <option value="bath3">3</option>
-                                            
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
+                                        <button>Reservation</button>
                                     </div>
 
                                 </form>

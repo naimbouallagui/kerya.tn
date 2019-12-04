@@ -285,7 +285,7 @@ function displaySearchPropreties() {
         $('#listsearch').append($(`<div class="property-item col-md-6 col-12 mb-40">
     <div class="property-inner">
         <div class="image">
-            <a href="galleryc.html"  onclick="displayReservation(${listSearch.id})"><img src="assets/images/gallery/${listSearch.gallery}" alt="${listSearch.title}" style="height: 200px;"></a>
+            <a onclick="displayReservation(${listSearch.id})"><img src="assets/images/gallery/${listSearch.gallery}" alt="${listSearch.title}" style="height: 200px;"></a>
             <ul class="property-feature">
                 <li>
                     <span class="area"><img src="assets/images/icons/area.png" alt="">${listSearch.price} Dt</span>
@@ -312,99 +312,172 @@ function displaySearchPropreties() {
         </div>
     </div>
 </div>`))
-
+        console.log(listSearch.id)
         return true
     })
 
 }
 
 
-
-
-
-
 function displayReservation(id) {
+    localStorage.setItem('reservationDetail', id)
+    location.href = 'galleryc.html'
+
+}
+
+
+function reservationDisplay() {
     var list = JSON.parse(localStorage.getItem("listSearch"));
-    var prop;
-    for (i = 0; i < list.length; i++) {
+    let html = ``;
+    let id = Number(localStorage.getItem('reservationDetail'));
+    console.log(id, 'id');
+
+    for (let i = 0; i < list.length; i++) {
+
         if (list[i].id == id) {
-            prop = list[i]
-            $('#reservation').append($(`<div class="single-property col-12 mb-50">
-            <div class="property-inner">
 
-                <div class="head">
-                    <div class="left">
-                        <h1 class="title">${list[i].title}</h1>
-                        <span class="location"><img src="assets/images/gallery/${list[i].gallery}" alt="">${list[i].Adress}</span>
-                    </div>
-                    <div class="right">
-                        <div class="type-wrap">
-                            <span class="price">${list[i].price}<span>Month</span></span>
-                            <span class="type">For Rent</span>
+            html += `<div class = "property-inner" id="res">
+                        <div class="head">
+                        <div class="left">
+                            <h1 class="title">${list[i].title}dsfsdf</h1>
+                            <span class="location"><img src="assets/images/gallery/${list[i].gallery}" alt=""></span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="content">
-
-                    <h3>Description</h3>
-
-                    <p>${list[i].dscr}</p>
-
-                    <div class="row mt-30 mb-30">
-
-                        <div class="col-md-5 col-12 mb-xs-30">
-                            <h3>Condition</h3>
-                            <ul class="feature-list">
-                                <li>
-                                    <div class="image"><img src="assets/images/icons/area.png" alt=""></div>Area 550 sqft</li>
-                                <li>
-                                    <div class="image"><img src="assets/images/icons/bed.png" alt=""></div>Bedroom 6</li>
-                                <li>
-                                    <div class="image"><img src="assets/images/icons/bath.png" alt=""></div>Bathroom 4</li>
-                                <li>
-                                    <div class="image"><img src="assets/images/icons/parking.png" alt=""></div>Garage 2</li>
-                                <li>
-                                    <div class="image"><img src="assets/images/icons/kitchen.png" alt=""></div>Kitchen 2</li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-7 col-12">
-                            <h3>Amenities</h3>
-                            <ul class="amenities-list">
-                                <li>Air Conditioning</li>
-                                <li>Balcony</li>
-                                <li>Cable TV</li>
-                                <li>Internet</li>
-                                <li>Parking</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mb-30">
-                            <h3>Video</h3>
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/8CbvItGX7Vk"></iframe>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <h3>Location</h3>
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <div id="single-property-map" class="embed-responsive-item google-map" data-lat="40.740178" data-Long="-74.190194"></div>
+                        <div class="right">
+                            <div class="type-wrap">
+                                <span class="price">${list[i].price}<span>Month</span></span>
+                                <span class="type">${list[i].rent}</span>
                             </div>
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </div>`))
+                    <div class="content">
 
-            return true
+                       
+                        <h3>Address</h3>
+
+                        <p>${list[i].Adress}</p>
+                        <h3>Description</h3>
+
+                        <p>${list[i].dscr}</p>
+                        <div class="row mt-30 mb-30">
+
+                            <div class="col-md-5 col-12 mb-xs-30">
+                                <h3>Condition</h3>
+                                <ul class="feature-list">
+                                    <li>
+                                        <div class="image"><img src="assets/images/icons/area.png" alt=""></div>Area : ${list[i].price}</li>
+                                    <li>
+                                        <div class="image"><img src="assets/images/icons/bed.png" alt=""></div>Bedroom : ${list[i].nbbedrooms}</li>
+                                    <li>
+                                        <div class="image"><img src="assets/images/icons/bath.png" alt=""></div>Bathroom : ${list[i].nbbathrooms}</li>
+                                    
+                                </ul>
+                            </div>
+
+                            <div class="col-md-7 col-12">
+                                <h3>Amenities</h3>
+                                <ul class="amenities-list">
+                                    <li>Air Conditioning</li>
+                                    <li>Balcony</li>
+                                    <li>Cable TV</li>
+                                    <li>Internet</li>
+                                    <li>Parking</li>
+                                </ul>
+                            </div>
+                        </div>
+                         
+                        `;
         }
 
     }
+    console.log(html);
 
+    document.getElementById("res").innerHTML = html;
 }
+
+
+// function displayReservation(id) {
+//     var list = JSON.parse(localStorage.getItem("listSearch"));
+//     var prop;
+//     list.forEach((list) => {
+//             if (listSearch[i].id == id) {
+//                 prop = list[i]
+//                 $('#reservation').append($(` < div class = "single-property col-12 mb-50" >
+//             <div class="property-inner">
+
+//                 <div class="head">
+//                     <div class="left">
+//                         <h1 class="title">${list[i].title}</h1>
+//                         <span class="location"><img src="assets/images/gallery/${list[i].gallery}" alt="">${list[i].Adress}</span>
+//                     </div>
+//                     <div class="right">
+//                         <div class="type-wrap">
+//                             <span class="price">${list[i].price}<span>Month</span></span>
+//                             <span class="type">For Rent</span>
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 <div class="content">
+
+//                     <h3>Description</h3>
+
+//                     <p>${list[i].dscr}</p>
+
+//                     <div class="row mt-30 mb-30">
+
+//                         <div class="col-md-5 col-12 mb-xs-30">
+//                             <h3>Condition</h3>
+//                             <ul class="feature-list">
+//                                 <li>
+//                                     <div class="image"><img src="assets/images/icons/area.png" alt=""></div>Area 550 sqft</li>
+//                                 <li>
+//                                     <div class="image"><img src="assets/images/icons/bed.png" alt=""></div>Bedroom 6</li>
+//                                 <li>
+//                                     <div class="image"><img src="assets/images/icons/bath.png" alt=""></div>Bathroom 4</li>
+//                                 <li>
+//                                     <div class="image"><img src="assets/images/icons/parking.png" alt=""></div>Garage 2</li>
+//                                 <li>
+//                                     <div class="image"><img src="assets/images/icons/kitchen.png" alt=""></div>Kitchen 2</li>
+//                             </ul>
+//                         </div>
+
+//                         <div class="col-md-7 col-12">
+//                             <h3>Amenities</h3>
+//                             <ul class="amenities-list">
+//                                 <li>Air Conditioning</li>
+//                                 <li>Balcony</li>
+//                                 <li>Cable TV</li>
+//                                 <li>Internet</li>
+//                                 <li>Parking</li>
+//                             </ul>
+//                         </div>
+//                     </div>
+//                     <div class="row">
+//                         <div class="col-12 mb-30">
+//                             <h3>Video</h3>
+//                             <div class="embed-responsive embed-responsive-16by9">
+//                                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/8CbvItGX7Vk"></iframe>
+//                             </div>
+//                         </div>
+//                         <div class="col-12">
+//                             <h3>Location</h3>
+//                             <div class="embed-responsive embed-responsive-16by9">
+//                                 <div id="single-property-map" class="embed-responsive-item google-map" data-lat="40.740178" data-Long="-74.190194"></div>
+//                             </div>
+//                         </div>
+//                     </div>
+
+//                 </div>
+//             </div>
+//         </div>`))
+//                 console.log(listSearch.id[i])
+//                 return true;
+
+//             }
+//         }
+//     }
+
 
 function fillProfile() {
     const loggedUser = JSON.parse(localStorage.loggedUser)
