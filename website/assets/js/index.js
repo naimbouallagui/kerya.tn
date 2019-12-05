@@ -351,12 +351,13 @@ function bookingsListUser() {
 
     for (let i = 0; i < reservationdate.length; i++) {
         if (reservationdate[i].loggedUserId == list[i].owner) {
-            // if (reservationdate[i].statut == "inProgress") {
-            html += ` <div class="row" id="bookingList">
+            if (reservationdate[i].statut == "inProgress") {
+
+                html += ` <div class="row" id="bookingList">
             <div class="property-item col-md-6 col-12 mb-40">
             <div class="property-inner">
                 <div class="image">
-                    <a href="single-properties.html"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
+                    <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
                     <ul class="property-feature">
                         <li>
                             <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
@@ -383,11 +384,90 @@ function bookingsListUser() {
                 </div>
             </div>
         </div>`;
+                console.log("in progress")
+            }
+            if (reservationdate[i].statut == "Accepted") {
 
+                html += ` <div class="row" id="bookingList">
+            <div class="property-item col-md-6 col-12 mb-40">
+            <div class="property-inner">
+                <div class="image">
+                    <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
+                    <ul class="property-feature">
+                        <li>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
+                        </li>
+                        <li>
+                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
+                        </li>
+                        <li>
+                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="left">
+                        <h3 class="title"><a href="#">${list[i].title}</a></h3>
+                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
+                    </div>
+                    <div class="right">
+                        <div class="type-wrap">
+                            <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
+                            <span class="type">For Rent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                console.log("Accepted")
+            }
 
         }
     }
     document.getElementById("bookingList").innerHTML = html;
+}
+
+function confirmListAnn() {
+
+    var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+    var list = JSON.parse(localStorage.getItem("listSearch"));
+    var html = ``;
+    for (let i = 0; i < reservationdate.length; i++) {
+        if (reservationdate[i].idannonce == list[i].id) {
+            html += ` <div class="row" id="confirmList">
+    <div class="property-item col-md-6 col-12 mb-40">
+    <div class="property-inner">
+        <div class="image">
+            <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
+            <ul class="property-feature">
+                <li>
+                    <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
+                </li>
+                <li>
+                    <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
+                </li>
+                <li>
+                    <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="left">
+                <h3 class="title"><a href="#">${list[i].title}</a></h3>
+                <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
+            </div>
+            <div class="right">
+                <div class="type-wrap">
+                    <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
+                    <span class="type">For Rent</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
+        }
+    }
+    document.getElementById("confirmList").innerHTML = html;
 }
 
 function displayReservation(id) {
@@ -453,6 +533,7 @@ function reservationDisplay() {
     }
     document.getElementById("res").innerHTML = html;
 }
+
 
 function reservationDate() {
     var id = Number(localStorage.getItem('reservationDetail'));
