@@ -425,7 +425,6 @@ function reservationDisplay() {
         }
 
     }
-    console.log(html);
 
     document.getElementById("res").innerHTML = html;
 }
@@ -552,7 +551,7 @@ function fillCarousel(){
                 </div>
                 <div class="content">
                     <div class="left">
-                        <h3 class="title"><a href="single-properties.html">${element.title}</a></h3>
+                        <h3 class="title"><a href="#">${element.title}</a></h3>
                         <span class="location"><img src="assets/images/icons/marker.png" alt="">${element.Adress}</span>
                     </div>
                     <div class="right">
