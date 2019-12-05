@@ -152,15 +152,8 @@ function register() {
     if (listUser == null) {
         listUser = [];
     }
-
     if (
-        firstName() &&
-        lastName() &&
-        isMailConfirmed() &&
-        validNumber() &&
-        userName() &&
-        passwordTest() &&
-        confirmPassword()
+        firstName() && lastName() && isMailConfirmed() && validNumber() && userName() && passwordTest() && confirmPassword()
     ) {
         var userObj = {
             id: Math.floor(Math.random() * 1000 + 1),
@@ -174,13 +167,10 @@ function register() {
             confirmPass: document.getElementById("paswc").value,
             isAdmin: false
         };
-        // let admin = {
-        //   username : 'admin',
-        //   password : 'admin',
-        //   isAdmin: true
-        // }
+
         listUser.push(userObj);
         localStorage.setItem("userList", JSON.stringify(listUser));
+
         document.getElementById("firstname").value = "";
         document.getElementById("lastname").value = "";
         document.getElementById("mail").value = "";
@@ -239,12 +229,12 @@ function logOut() {
     document.location = "../website/index.html";
 }
 
-function fillProperties(loggedUser = null, checked="Activated") {
+function fillProperties(loggedUser = null, checked = "Activated") {
     var listAnnonce = JSON.parse(localStorage.getItem('annonce'))
     listAnnonce.forEach((annonce) => {
-        if (loggedUser===null && annonce.checked === checked) {
-            
-        $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
+        if (loggedUser === null && annonce.checked === checked) {
+
+            $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
               <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
@@ -274,10 +264,10 @@ function fillProperties(loggedUser = null, checked="Activated") {
           </div>
       </div>
   </div>`))
-}
-if (loggedUser && loggedUser.id === annonce.owner && annonce.checked === checked) {
-            
-    $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
+        }
+        if (loggedUser && loggedUser.id === annonce.owner && annonce.checked === checked) {
+
+            $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
   <div class="property-inner">
       <div class="image">
           <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
@@ -307,15 +297,12 @@ if (loggedUser && loggedUser.id === annonce.owner && annonce.checked === checked
       </div>
   </div>
 </div>`))
-}
+        }
     })
-
 }
 
 function displaySearchPropreties() {
-
     var list = JSON.parse(localStorage.getItem("listSearch"));
-
     list.forEach((listSearch) => {
         $('#listsearch').append($(`<div class="property-item col-md-6 col-12 mb-40">
     <div class="property-inner">
@@ -350,27 +337,24 @@ function displaySearchPropreties() {
         console.log(listSearch.id)
         return true
     })
-
 }
-
 
 function displayReservation(id) {
+    // var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     localStorage.setItem('reservationDetail', id)
+        // if (!loggedUser) {
+        //     location.href = 'gallery.html'
+        // } else {
     location.href = 'galleryc.html'
-
 }
-
 
 function reservationDisplay() {
     var list = JSON.parse(localStorage.getItem("listSearch"));
     let html = ``;
     let id = Number(localStorage.getItem('reservationDetail'));
     console.log(id, 'id');
-
     for (let i = 0; i < list.length; i++) {
-
         if (list[i].id == id) {
-
             html += `<div class = "property-inner" id="res">
                         <div class="head">
                         <div class="left">
@@ -384,16 +368,12 @@ function reservationDisplay() {
                             </div>
                         </div>
                     </div>
-
                     <div class="content">
-
-                       
                         <h3>Address</h3>
 
                         <p>${list[i].Adress}</p>
                         <h3>Description</h3>
-
-                        <p>${list[i].dscr}</p>
+                        <p>${list[i].descr}</p>
                         <div class="row mt-30 mb-30">
 
                             <div class="col-md-5 col-12 mb-xs-30">
@@ -404,11 +384,9 @@ function reservationDisplay() {
                                     <li>
                                         <div class="image"><img src="assets/images/icons/bed.png" alt=""></div>Bedroom : ${list[i].nbbedrooms}</li>
                                     <li>
-                                        <div class="image"><img src="assets/images/icons/bath.png" alt=""></div>Bathroom : ${list[i].nbbathrooms}</li>
-                                    
+                                        <div class="image"><img src="assets/images/icons/bath.png" alt=""></div>Bathroom : ${list[i].nbbathrooms}</li>                               
                                 </ul>
                             </div>
-
                             <div class="col-md-7 col-12">
                                 <h3>Amenities</h3>
                                 <ul class="amenities-list">
@@ -419,99 +397,37 @@ function reservationDisplay() {
                                     <li>Parking</li>
                                 </ul>
                             </div>
-                        </div>
-                         
+                        </div>                
                         `;
         }
-
     }
-
     document.getElementById("res").innerHTML = html;
 }
 
+function reservationDate() {
+    let id = Number(localStorage.getItem('reservationDetail'));
+    var reservationlist = JSON.parse(localStorage.getItem("reservationdate"));
+    if (reservationlist == null) {
+        reservationlist = [];
+    }
+    var userObj = {
+        datestart: document.getElementById("startdate").value,
+        dateend: document.getElementById("enddate").value,
+        idannonce: id,
+        statut: "inProgress"
+    };
+    reservationlist.push(userObj);
+    localStorage.setItem("reservationdate", JSON.stringify(reservationlist));
+}
 
-// function displayReservation(id) {
-//     var list = JSON.parse(localStorage.getItem("listSearch"));
-//     var prop;
-//     list.forEach((list) => {
-//             if (listSearch[i].id == id) {
-//                 prop = list[i]
-//                 $('#reservation').append($(` < div class = "single-property col-12 mb-50" >
-//             <div class="property-inner">
+// testReservation() {
+//     var startDate1 = document.getElementById("startdate").value
+//     var endDate1 = document.getElementById("enddate").value
+//     var today = new Date();
 
-//                 <div class="head">
-//                     <div class="left">
-//                         <h1 class="title">${list[i].title}</h1>
-//                         <span class="location"><img src="assets/images/gallery/${list[i].gallery}" alt="">${list[i].Adress}</span>
-//                     </div>
-//                     <div class="right">
-//                         <div class="type-wrap">
-//                             <span class="price">${list[i].price}<span>Month</span></span>
-//                             <span class="type">For Rent</span>
-//                         </div>
-//                     </div>
-//                 </div>
+//     if ()
 
-//                 <div class="content">
-
-//                     <h3>Description</h3>
-
-//                     <p>${list[i].dscr}</p>
-
-//                     <div class="row mt-30 mb-30">
-
-//                         <div class="col-md-5 col-12 mb-xs-30">
-//                             <h3>Condition</h3>
-//                             <ul class="feature-list">
-//                                 <li>
-//                                     <div class="image"><img src="assets/images/icons/area.png" alt=""></div>Area 550 sqft</li>
-//                                 <li>
-//                                     <div class="image"><img src="assets/images/icons/bed.png" alt=""></div>Bedroom 6</li>
-//                                 <li>
-//                                     <div class="image"><img src="assets/images/icons/bath.png" alt=""></div>Bathroom 4</li>
-//                                 <li>
-//                                     <div class="image"><img src="assets/images/icons/parking.png" alt=""></div>Garage 2</li>
-//                                 <li>
-//                                     <div class="image"><img src="assets/images/icons/kitchen.png" alt=""></div>Kitchen 2</li>
-//                             </ul>
-//                         </div>
-
-//                         <div class="col-md-7 col-12">
-//                             <h3>Amenities</h3>
-//                             <ul class="amenities-list">
-//                                 <li>Air Conditioning</li>
-//                                 <li>Balcony</li>
-//                                 <li>Cable TV</li>
-//                                 <li>Internet</li>
-//                                 <li>Parking</li>
-//                             </ul>
-//                         </div>
-//                     </div>
-//                     <div class="row">
-//                         <div class="col-12 mb-30">
-//                             <h3>Video</h3>
-//                             <div class="embed-responsive embed-responsive-16by9">
-//                                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/8CbvItGX7Vk"></iframe>
-//                             </div>
-//                         </div>
-//                         <div class="col-12">
-//                             <h3>Location</h3>
-//                             <div class="embed-responsive embed-responsive-16by9">
-//                                 <div id="single-property-map" class="embed-responsive-item google-map" data-lat="40.740178" data-Long="-74.190194"></div>
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                 </div>
-//             </div>
-//         </div>`))
-//                 console.log(listSearch.id[i])
-//                 return true;
-
-//             }
-//         }
-//     }
-
+// }
 
 function fillProfile() {
     const loggedUser = JSON.parse(localStorage.loggedUser)
@@ -527,12 +443,12 @@ function fillProfile() {
 
 }
 
-function fillCarousel(){
+function fillCarousel() {
     let listCarousel = JSON.parse(localStorage.annonce)
     let html = '';
     for (let i = 0; i < listCarousel.length; i++) {
         const element = listCarousel[i];
-        if(element.checked === 'Activated'){
+        if (element.checked === 'Activated') {
             html += `<div class="property-item col">
             <div class="property-inner">
                 <div class="image">
@@ -564,7 +480,7 @@ function fillCarousel(){
             </div>
         </div>`
         }
-        
+
     }
     document.getElementById('carousel-property').innerHTML = html
 }
