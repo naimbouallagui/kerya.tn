@@ -301,6 +301,8 @@ function fillProperties(loggedUser = null, checked = "Activated") {
     })
 }
 
+
+
 function displaySearchPropreties() {
     var list = JSON.parse(localStorage.getItem("listSearch"));
     list.forEach((listSearch) => {
@@ -339,8 +341,136 @@ function displaySearchPropreties() {
     })
 }
 
-function displayReservation(id) {
+
+function bookingsListUser() {
+    var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
     // var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    var list = JSON.parse(localStorage.getItem("listSearch"));
+
+    var html = ``;
+
+    for (let i = 0; i < reservationdate.length; i++) {
+        if (reservationdate[i].loggedUserId == list[i].owner) {
+            if (reservationdate[i].statut == "inProgress") {
+
+                html += ` <div class="row" id="bookingList">
+            <div class="property-item col-md-6 col-12 mb-40">
+            <div class="property-inner">
+                <div class="image">
+                    <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
+                    <ul class="property-feature">
+                        <li>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
+                        </li>
+                        <li>
+                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
+                        </li>
+                        <li>
+                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="left">
+                        <h3 class="title"><a href="#">${list[i].title}</a></h3>
+                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
+                    </div>
+                    <div class="right">
+                        <div class="type-wrap">
+                            <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
+                            <span class="type">For Rent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                console.log("in progress")
+            }
+            if (reservationdate[i].statut == "Accepted") {
+
+                html += ` <div class="row" id="bookingList">
+            <div class="property-item col-md-6 col-12 mb-40">
+            <div class="property-inner">
+                <div class="image">
+                    <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
+                    <ul class="property-feature">
+                        <li>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
+                        </li>
+                        <li>
+                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
+                        </li>
+                        <li>
+                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="left">
+                        <h3 class="title"><a href="#">${list[i].title}</a></h3>
+                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
+                    </div>
+                    <div class="right">
+                        <div class="type-wrap">
+                            <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
+                            <span class="type">For Rent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                console.log("Accepted")
+            }
+
+        }
+    }
+    document.getElementById("bookingList").innerHTML = html;
+}
+
+function confirmListAnn() {
+
+    var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+    var list = JSON.parse(localStorage.getItem("listSearch"));
+    var html = ``;
+    for (let i = 0; i < reservationdate.length; i++) {
+        if (reservationdate[i].idannonce == list[i].id) {
+            html += ` <div class="row" id="confirmList">
+    <div class="property-item col-md-6 col-12 mb-40">
+    <div class="property-inner">
+        <div class="image">
+            <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
+            <ul class="property-feature">
+                <li>
+                    <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
+                </li>
+                <li>
+                    <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
+                </li>
+                <li>
+                    <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="left">
+                <h3 class="title"><a href="#">${list[i].title}</a></h3>
+                <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
+            </div>
+            <div class="right">
+                <div class="type-wrap">
+                    <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
+                    <span class="type">For Rent</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
+        }
+    }
+    document.getElementById("confirmList").innerHTML = html;
+}
+
+function displayReservation(id) {
     localStorage.setItem('reservationDetail', id)
         // if (!loggedUser) {
         //     location.href = 'gallery.html'
@@ -404,30 +534,45 @@ function reservationDisplay() {
     document.getElementById("res").innerHTML = html;
 }
 
+
 function reservationDate() {
-    let id = Number(localStorage.getItem('reservationDetail'));
+    var id = Number(localStorage.getItem('reservationDetail'));
+
+    var list = JSON.parse(localStorage.getItem("userList"));
+    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     var reservationlist = JSON.parse(localStorage.getItem("reservationdate"));
     if (reservationlist == null) {
         reservationlist = [];
     }
     var userObj = {
+        idReservation: Math.floor(Math.random() * 1000 + 1),
         datestart: document.getElementById("startdate").value,
         dateend: document.getElementById("enddate").value,
         idannonce: id,
-        statut: "inProgress"
+        statut: "inProgress",
+        loggedUserId: loggedUser.id
     };
     reservationlist.push(userObj);
     localStorage.setItem("reservationdate", JSON.stringify(reservationlist));
+
+
 }
 
-// testReservation() {
-//     var startDate1 = document.getElementById("startdate").value
-//     var endDate1 = document.getElementById("enddate").value
-//     var today = new Date();
+function testReservation() {
 
-//     if ()
+    var startDate1 = document.getElementById("startdate").value
+    var endDate1 = document.getElementById("enddate").value
+    var today = new Date();
+    var dayStart = parseInt(startDate1.substr(8, 2));
+    var dayEnd = parseInt(endDate1.substr(8, 2));
 
-// }
+    if ((today.getDate() < dayStart) && (dayEnd > dayStart)) {
+        console.log("mrigl")
+        return true;
+    } else console.log("no")
+    alert("fixe the date")
+    return false;
+}
 
 function fillProfile() {
     const loggedUser = JSON.parse(localStorage.loggedUser)
