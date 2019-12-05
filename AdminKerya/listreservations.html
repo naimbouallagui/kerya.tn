@@ -32,7 +32,7 @@
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed" onload=" listAnnonceDenied()">
+<body onload="listReservation()" class="hold-transition sidebar-mini layout-fixed" >
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -100,41 +100,12 @@
                                     <h3 class="dropdown-item-title">
                                         Setting
                                     </h3>
-                                    <!-- <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>-->
                                 </div>
                             </div>
                             <!-- Message End -->
                         </a>
                     </div>
                 </li>
-                <!-- Notifications Dropdown Menu -->
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li> -->
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -162,19 +133,18 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                        
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link active">
+                            <a href="../AdminKerya/index.html" class="nav-link ">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Annonces
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: block;">
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../AdminKerya/index.html" class="nav-link">
+                                    <a href="../AdminKerya/index.html" class="nav-link ">
                                       <i class="fas fa-table nav-icon"></i>
                                       <p>List</p>
                                     </a>
@@ -186,7 +156,7 @@
                                   </a>
                                 </li>
                                 <li class="nav-item">
-                                  <a href="../AdminKerya/deniedlist.html" class="nav-link active">
+                                  <a href="../AdminKerya/deniedlist.html" class="nav-link">
                                     <i class="fas fa-ban nav-icon"></i>
                                     <p>Denied</p>
                                   </a>
@@ -205,7 +175,7 @@
                             
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="../AdminKerya/listreservations.html" class="nav-link">
+                            <a href="../AdminKerya/listreservations.html" class="nav-link active">
                                 <i class="nav-icon fas fa-cart-plus"></i>
                                 <p>
                                     Reservation
@@ -242,12 +212,12 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-            <section class="content" id="annoncelist">
+            <section class="content" id="reservation_list">
 
               <!-- Default box -->
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Annonces</h3>
+                  <h3 class="card-title">Clients</h3>
         
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -257,10 +227,10 @@
                   </div>
                 </div>
                 <div class="card-body p-0">
-                  <table class="table table-striped projects" id="annonce_table_denied">
+                  <table class="table table-striped projects" id="reservation_table">
                     
                   </table>
-                  <div id="modal_annonce"></div>
+                  <div id="modal_reservation"></div>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -334,8 +304,9 @@
     <script src="dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
-    <script src="index.js">
-      </script>
+    <script src="index.js"> </script>
+      <script type="text/javascript">
+    </script>
 </body>
 
 </html>

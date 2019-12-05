@@ -1,3 +1,35 @@
+function listReservation(){
+  let reservationList = JSON.parse(localStorage.getItem("reservationdate")) || [];
+  let html = "";
+  var j=0
+       
+  html = ` <table id="reservation_table">
+<thead>
+  <tr>
+      <th style="width: 1%">id</th>
+      <th style="width: 20%">Start Date</th>
+      <th style="width: 30%">End Date</th>
+      <th style="width: 8%">Status</th>
+  </tr>
+  </thead>`;
+  // loop and display the items of localstorage object
+  for (let i = 0; i < reservationList.length; i++) {
+    j+=1;
+          html += `  <tr>
+      <td style="width: 1%">${j}</td>
+      <td style="width: 20%">${reservationList[i].datestart}</td>
+      <td style="width: 30%">${reservationList[i].dateend}</td>
+      <td class="project-actions" style="width: 20%">
+      ${reservationList[i].statut}
+        </td>
+  </tr>
+  `;
+  }
+  // add the rest tag of table
+  html += ` </table>`;
+  // inject html
+  document.getElementById("reservation_table").innerHTML = html;
+}
 
 function listClients() {
   let clients = JSON.parse(localStorage.getItem("userList")) || [];
