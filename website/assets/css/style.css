@@ -4842,3 +4842,7 @@ header.header {
   right: 0;
   left: auto;
 } */
+
+.li-point-style{
+  list-style-type: none;
+}

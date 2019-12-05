@@ -575,16 +575,37 @@ function testReservation() {
 }
 
 function fillProfile() {
-    const loggedUser = JSON.parse(localStorage.loggedUser)
-    $('#f_name').val(loggedUser.firstname) //input or select
-    $('#l_name').val(loggedUser.lastname) //input or select
-    $('#personal_number').val(loggedUser.number) //input or select
-    $('#personal_email').val(loggedUser.email) //input or select
-    $('#username').val(loggedUser.username) //input or select
-    $('#personal_address').val(loggedUser.adress) //input or select
-    $('#personal_password').val(loggedUser.password) //input or select
-        //$('#personal_address').html(loggedUser.adress)// textzreza
-        //$('#username').html(loggedUser.username)// textzreza
+    // const loggedUser = JSON.parse(localStorage.loggedUser)
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"))
+    let index = loggedUser.id;
+    //$('#f_name').val(loggedUser.firstname) //input or select
+    //$('#l_name').val(loggedUser.lastname) //input or select
+    //$('#personal_number').val(loggedUser.number) //input or select
+    //$('#personal_email').val(loggedUser.email) //input or select
+    //$('#username').val(loggedUser.username) //input or select
+    //$('#personal_address').val(loggedUser.adress) //input or select
+    //$('#personal_password').val(loggedUser.password) //input or select
+    //$('#personal_address').html(loggedUser.adress)// textzreza
+    //$('#username').html(loggedUser.username)// textzreza
+    document.getElementById('f_name').value = loggedUser.firstname;
+    document.getElementById('l_name').value = loggedUser.lastname;
+    document.getElementById('personal_number').value = loggedUser.number;
+    document.getElementById('personal_email').value = loggedUser.email;
+    document.getElementById('username').value = loggedUser.username;
+    document.getElementById('personal_address').value = loggedUser.adress;
+    document.getElementById('personal_password').value = loggedUser.password;
+
+
+  loggedUser[index].firstname = document.getElementById("f_name").value;
+  loggedUser[index].lastname = document.getElementById("l_name").value;
+  loggedUser[index].number = document.getElementById("personal_number").value;
+  loggedUser[index].email = document.getElementById("personal_email").value;
+  loggedUser[index].username = document.getElementById("username").value;
+  loggedUser[index].adress = document.getElementById("personal_address").value;
+  loggedUser[index].password = document.getElementById("personal_password").value;
+
+  localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+//   displayTask();
 
 }
 

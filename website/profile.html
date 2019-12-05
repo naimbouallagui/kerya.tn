@@ -62,12 +62,13 @@
                         <!--User start-->
                         <div class="col mr-sm-50 mr-xs-50">
                             <div class="header-user">
-                                <a href="#" class="user-toggle dropdown-toggle" data-toggle="dropdown">Logout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="add.html">Add Properties</a></li>
-                                    <li><a href="profile.html">Setting</a></li>
-                                    <li><a href="#" onclick="logOut()">Logout</a></li>
-                                </ul>
+                                 <li class="li-point-style"><a data-toggle="dropdown"><i class="pe-7s-user" style="font-size: 39px;"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="add.html">Add Properties</a></li>
+                                        <li><a href="profile.html">Setting</a></li>
+                                        <li><a onclick="logOut()">Logout</a></li>
+                                    </ul>
+                                </li>
                             </div>
                         </div>
                         <!--User end-->
@@ -114,7 +115,7 @@
                             <li><a href="#booking-tab" data-toggle="tab"><i class="pe-7s-lock"></i>My bookings</a></li>
                             <li><a href="#confirm-tab" data-toggle="tab"><i class="pe-7s-lock"></i>Confirm Properties</a></li>
 
-                            <li><a href="#" onclick="logOut()"><i class="pe-7s-power"></i>Log Out</a></li>
+                            <li><a onclick="logOut()"><i class="pe-7s-power"></i>Log Out</a></li>
                         </ul>
                     </div>
 
@@ -143,7 +144,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mb-30"><button class="btn">Save Change</button></div>
+                                        <div class="col-12 mb-30"><button class="btn" onclick="fillProfile();">Save Change</button></div>
                                     </div>
                                 </form>
                             </div>
