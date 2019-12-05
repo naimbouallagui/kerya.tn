@@ -121,18 +121,18 @@ function removeProperty(id) {
   location.reload()
 }
 function activate(id) {
-    let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
-    var annonce;
-    console.log(id);
-    for (i = 0; i < annonceList.length; i++) {
-        if (annonceList[i].id == id) {
-
-            annonceList[i].checked = "Activated";
-        }
-
-    }
-    localStorage.setItem("annonce", JSON.stringify(annonceList));
-
+  let annonceList = JSON.parse(localStorage.getItem("annonce")) || [];
+  var annonce;
+  console.log( id);
+  for (i = 0; i < annonceList.length; i++) {
+    if (annonceList[i].id == id)
+    {
+    
+      annonceList[i].checked="Activated";}
+     
+  }
+  localStorage.setItem("annonce", JSON.stringify(annonceList));
+  location.reload();
 }
 
 function deny(id) {
