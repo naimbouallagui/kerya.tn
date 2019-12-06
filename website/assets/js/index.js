@@ -596,13 +596,13 @@ function fillProfile() {
     document.getElementById('personal_password').value = loggedUser.password;
 
 
-  loggedUser[index].firstname = document.getElementById("f_name").value;
-  loggedUser[index].lastname = document.getElementById("l_name").value;
-  loggedUser[index].number = document.getElementById("personal_number").value;
-  loggedUser[index].email = document.getElementById("personal_email").value;
-  loggedUser[index].username = document.getElementById("username").value;
-  loggedUser[index].adress = document.getElementById("personal_address").value;
-  loggedUser[index].password = document.getElementById("personal_password").value;
+//   loggedUser[index].firstname = document.getElementById("f_name").value;
+//   loggedUser[index].lastname = document.getElementById("l_name").value;
+//   loggedUser[index].number = document.getElementById("personal_number").value;
+//   loggedUser[index].email = document.getElementById("personal_email").value;
+//   loggedUser[index].username = document.getElementById("username").value;
+//   loggedUser[index].adress = document.getElementById("personal_address").value;
+//   loggedUser[index].password = document.getElementById("personal_password").value;
 
   localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 //   displayTask();
