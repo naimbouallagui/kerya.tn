@@ -237,7 +237,7 @@ function fillProperties(loggedUser = null, checked = "Activated") {
             $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
-              <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
+              <a href="#"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
               <ul class="property-feature">
                   <li>
                       <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
@@ -270,7 +270,7 @@ function fillProperties(loggedUser = null, checked = "Activated") {
             $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
   <div class="property-inner">
       <div class="image">
-          <a href="single-properties.html"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
+          <a href="#"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
           <ul class="property-feature">
               <li>
                   <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
@@ -293,6 +293,12 @@ function fillProperties(loggedUser = null, checked = "Activated") {
                   <span class="price">${annonce.price}DT<span>${annonce.periode}</span></span>
                   <span class="type">For Rent</span>
               </div>
+          </div>
+          <div class="left" style="margin-top: 10px;">
+                <div class="type-wrap">
+                    <button class="btn btn-edit">Edit</button>
+                    <button class="btn btn-delete">Delete</button>
+                </div>
           </div>
       </div>
   </div>
@@ -344,131 +350,130 @@ function displaySearchPropreties() {
 
 function bookingsListUser() {
     var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
-    // var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    var list = JSON.parse(localStorage.getItem("listSearch"));
+    let annonce = JSON.parse(localStorage.getItem("annonce"));
+    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    // var list = JSON.parse(localStorage.getItem("listSearch"));
 
     var html = ``;
 
-    for (let i = 0; i < reservationdate.length; i++) {
-        if (reservationdate[i].loggedUserId == list[i].owner) {
-            if (reservationdate[i].statut == "inProgress") {
-
-                html += ` <div class="row" id="bookingList">
-            <div class="property-item col-md-6 col-12 mb-40">
-            <div class="property-inner">
-                <div class="image">
-                    <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
-                    <ul class="property-feature">
-                        <li>
-                            <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
-                        </li>
-                        <li>
-                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
-                        </li>
-                        <li>
-                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content">
-                    <div class="left">
-                        <h3 class="title"><a href="#">${list[i].title}</a></h3>
-                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
-                    </div>
-                    <div class="right">
-                        <div class="type-wrap">
-                            <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
-                            <span class="type">For Rent</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-                console.log("in progress")
+    for (let i = 0; i < annonce.length; i++) {
+        for (let j = 0; j < reservationdate.length; j++) {
+            if (annonce[i].id == reservationdate[j].idannonce) {
+                annonce[i]['Reserved'] = true;
+                annonce[i]['booker'] = reservationdate[j].loggedUserId;
             }
-            if (reservationdate[i].statut == "Accepted") {
-
-                html += ` <div class="row" id="bookingList">
-            <div class="property-item col-md-6 col-12 mb-40">
-            <div class="property-inner">
-                <div class="image">
-                    <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
-                    <ul class="property-feature">
-                        <li>
-                            <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
-                        </li>
-                        <li>
-                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
-                        </li>
-                        <li>
-                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content">
-                    <div class="left">
-                        <h3 class="title"><a href="#">${list[i].title}</a></h3>
-                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
-                    </div>
-                    <div class="right">
-                        <div class="type-wrap">
-                            <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
-                            <span class="type">For Rent</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-                console.log("Accepted")
-            }
-
         }
+
+        // console.log((annonce[i]['Reserved']), annonce[i]['booker'], loggedUser.id);
+
+        if ((annonce[i]['Reserved']) && annonce[i]['booker'] == loggedUser.id) {
+            // console.log((annonce[i]['Reserved']));
+            html += ` <div class="row" id="bookingList">
+            <div class="property-item col-md-6 col-12 mb-40">
+            <div class="property-inner">
+                <div class="image">
+                
+                    <a href="#"><img src="assets/images/gallery/${annonce[i].gallery}" alt="${annonce[i].title}" style="height: 200px;"></a>
+                    <ul class="property-feature">
+                        <li>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce[i].price} Dt</span>
+                        </li>
+                        <li>
+                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce[i].nbbedrooms}</span>
+                        </li>
+                        <li>
+                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">${annonce[i].nbbathrooms}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="left">
+                        <h3 class="title"><a href="#">${annonce[i].title}</a></h3>
+                        <span class="location"><img src="assets/images/icons/marker.png" alt="">${annonce[i].Adress}</span>
+                    </div>
+                    <div class="right">
+                        <div class="type-wrap">
+                            <span class="price">${annonce[i].price}DT<span>${annonce[i].periode}</span></span>
+                            <span class="type">For Rent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>`;
+        }
+
+
+
     }
+    // console.log(annonce);
+
     document.getElementById("bookingList").innerHTML = html;
 }
 
 function confirmListAnn() {
-
     var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
-    var list = JSON.parse(localStorage.getItem("listSearch"));
+    let annonce = JSON.parse(localStorage.getItem("annonce"));
+    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    // var list = JSON.parse(localStorage.getItem("listSearch"));
+
     var html = ``;
-    for (let i = 0; i < reservationdate.length; i++) {
-        if (reservationdate[i].idannonce == list[i].id) {
-            html += ` <div class="row" id="confirmList">
-    <div class="property-item col-md-6 col-12 mb-40">
-    <div class="property-inner">
-        <div class="image">
-            <a href="#"><img src="assets/images/gallery/${list[i].gallery}" alt="${list[i].title}" style="height: 200px;"></a>
-            <ul class="property-feature">
-                <li>
-                    <span class="area"><img src="assets/images/icons/area.png" alt="">${list[i].price} Dt</span>
-                </li>
-                <li>
-                    <span class="bed"><img src="assets/images/icons/bed.png" alt="">${list[i].nbbedrooms}</span>
-                </li>
-                <li>
-                    <span class="bath"><img src="assets/images/icons/bath.png" alt="">${list[i].nbbathrooms}</span>
-                </li>
-            </ul>
-        </div>
-        <div class="content">
-            <div class="left">
-                <h3 class="title"><a href="#">${list[i].title}</a></h3>
-                <span class="location"><img src="assets/images/icons/marker.png" alt="">${list[i].Adress}</span>
-            </div>
-            <div class="right">
-                <div class="type-wrap">
-                    <span class="price">${list[i].price}DT<span>${list[i].periode}</span></span>
-                    <span class="type">For Rent</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>`;
+
+    for (let i = 0; i < annonce.length; i++) {
+        for (let j = 0; j < reservationdate.length; j++) {
+            if ((reservationdate[j].idannonce == annonce[i].id) && (annonce[i].owner == loggedUser.id)) {
+                //console.log(x);
+                // console.log(reservationdate[j]);
+                // console.log(annonce[i]);
+                html += ` 
+                <div class="row" id="confirmList">
+                    <div class="property-item col-md-6 col-12 mb-40">
+                        <div class="property-inner">
+                            <div class="image">
+                                <a href="#"><img src="assets/images/gallery/${annonce[i].gallery}" alt="${annonce[i].title}" style="height: 200px;"></a>
+                                <ul class="property-feature">
+                                    <li>
+                                        <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce[i].price} Dt</span>
+                                    </li>
+                                    <li>
+                                        <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce[i].nbbedrooms}</span>
+                                    </li>
+                                    <li>
+                                        <span class="bath"><img src="assets/images/icons/bath.png" alt="">${annonce[i].nbbathrooms}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <div class="left">
+                                    <h3 class="title"><a href="#">${annonce[i].title}</a></h3>
+                                    <span class="location"><img src="assets/images/icons/marker.png" alt="">${annonce[i].Adress}</span>
+                                </div>
+                                <div class="right">
+                                    <div class="type-wrap">
+                                        <span class="price">${annonce[i].price}DT<span>${annonce[i].periode}</span></span>
+                                        <span class="type">For Rent</span>
+                                    </div>
+                                </div>
+                                <div class="left" style="margin-top: 10px;">
+                                    <div class="type-wrap">
+                                        <button class="btn">Accept</button>
+                                        <button class="btn">Deny</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }
         }
+
+
+
     }
     document.getElementById("confirmList").innerHTML = html;
 }
+
+
 
 function displayReservation(id) {
     localStorage.setItem('reservationDetail', id)
@@ -551,6 +556,7 @@ function reservationDate() {
         idannonce: id,
         statut: "inProgress",
         loggedUserId: loggedUser.id
+
     };
     reservationlist.push(userObj);
     localStorage.setItem("reservationdate", JSON.stringify(reservationlist));
@@ -562,17 +568,36 @@ function testReservation() {
 
     var startDate1 = document.getElementById("startdate").value
     var endDate1 = document.getElementById("enddate").value
+    let reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+    let annonce = JSON.parse(localStorage.getItem("annonce"));
+
     var today = new Date();
     var dayStart = parseInt(startDate1.substr(8, 2));
     var dayEnd = parseInt(endDate1.substr(8, 2));
-
     if ((today.getDate() < dayStart) && (dayEnd > dayStart)) {
         console.log("mrigl")
+
         return true;
-    } else console.log("no")
+    } else
+        console.log("no")
     alert("fixe the date")
     return false;
+
 }
+// for (let j = 0; j < annonce.length; j++) {
+//     for (let i = 0; i < reservationdate.length; i++) {
+
+//         if (reservationdate[i].idannonce == annonce[j].id) {
+//             annonce[i]['Reserved'] = true;
+//             console.log(annonce[j]['Reserved'], reservationdate[i].idannonce, annonce[j].id)
+//             console.log(annonce[j])
+//         }
+
+//     }
+// if (annonce[j]['Reserved']) {
+
+// }
+// } else 
 
 function fillProfile() {
     // const loggedUser = JSON.parse(localStorage.loggedUser)
