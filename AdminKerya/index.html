@@ -66,11 +66,11 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
+                    <a class="nav-link" data-toggle="dropdown">
                         <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
+                        <a onclick="logOut()" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
                                 <!-- <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">-->
@@ -338,6 +338,8 @@
       </script>
       <script type="text/javascript">
         isActiveList();
+        checkLogin();
+
     </script>
 </body>
 

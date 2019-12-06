@@ -325,4 +325,20 @@ function listAnnonceDenied() {
     document.getElementById("annonce_table_denied").innerHTML = html;
 }
 
+/**
+ * login test
+ */
+function logInAdmin(e) {
+  e.preventDefault();
+  var loginAdm = document.getElementById("login").value;
+  var passwordAdm = document.getElementById("password").value;
+  let listUserAdm = JSON.parse(localStorage.getItem("userList"));
+  for (i = 0; i < listUserAdm.length; i++) {
+        if (listUserAdm[i].username === loginAdm && listUserAdm[i].password === passwordAdm && listUserAdm[i].isAdmin == 'true') {
+            localStorage.setItem("loggedUser", JSON.stringify(listUserAdm[i]));
+            window.location = "../Adminkerya/index.html";
+        }
+        
+      }
+}
 

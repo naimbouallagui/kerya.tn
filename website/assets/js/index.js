@@ -197,7 +197,7 @@ function logIn(e) {
         if (listUser[i].username === login && listUser[i].password === password) {
             localStorage.setItem("loggedUser", JSON.stringify(listUser[i]));
             window.open(
-                listUser[i].isAdmin == true ?
+                listUser[i].isAdmin === 'true' ?
                 "../Adminkerya/index.html" :
                 "./home.html",
                 "_self"
