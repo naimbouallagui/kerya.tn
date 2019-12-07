@@ -78,7 +78,10 @@ function addAnnonce() {
         nbbedrooms: document.getElementById("nbbedrooms").value,
         nbbathrooms: document.getElementById("nbbathrooms").value,
         features: {
-            airc: document.getElementById("air_condition").checked
+            airc: document.getElementById("air_condition").checked,
+            bed: document.getElementById("bedding").checked,
+            cabletv: document.getElementById("cable_tv").checked,
+            internet: document.getElementById("internet").checked
         },
         gallery: document.getElementById('image').files[0].name,
         checked: 'inProgress',
@@ -121,6 +124,10 @@ function searchAnnC() {
     test = true;
 }
 
+// function filterByAttribute(list,attribute,value) {
+    
+// }
+
 
 function editProfile() {
     let listEdit = JSON.parse(localStorage.getItem("userList")) || [];
@@ -137,4 +144,74 @@ function editProfile() {
             break;
         }
     }
+}
+
+function fillAnnonce(id) {
+    let annonceList = JSON.parse(localStorage.annonce);
+    const annonce = annonceList.find(function (element) {
+        return element.id == id;
+    })
+    document.getElementById("property_title").value = annonce.title;
+    document.getElementById("cite").value = annonce.Adress;
+    document.getElementById("rentinput").value = annonce.rent;
+    document.getElementById("rentalPeriod").value = annonce.periode;
+    document.getElementById("typeMaison").value = annonce.type;
+    document.getElementById("price").value = annonce.price;
+    document.getElementById("galleryimg").innerHTML = annonce.gallery;
+    document.getElementById("property_description").innerHTML = annonce.descr;
+    document.getElementById("nbbedrooms").value = annonce.nbbedrooms;
+    document.getElementById("nbbathrooms").value = annonce.nbbathrooms;
+    document.getElementById("nbbathrooms").value = annonce.nbbathrooms;
+    document.getElementById("air_condition").checked = annonce.features.airc || false;
+    document.getElementById("bedding").checked = annonce.features.bed || false;
+    document.getElementById("cable_tv").checked = annonce.features.cabletv || false;
+    document.getElementById("internet").checked = annonce.features.internet || false;
+
+}
+
+function editAnnonce() {
+    var urlParams = new URLSearchParams(window.location.search)
+
+    const id = urlParams.get("id");
+    let annonceList = JSON.parse(localStorage.annonce);
+    const oldAnnonce = annonceList.find(a=>a.id == id)
+    
+
+    if (annonceList == null) {
+        annonceList = [];
+    }
+
+    // structure of object to add in localstorage
+    
+        oldAnnonce.title= document.getElementById("property_title").value;
+        oldAnnonce.Adress= document.getElementById("cite").value;
+        oldAnnonce.rent= document.getElementById("rentinput").value;
+        oldAnnonce.periode= document.getElementById("rentalPeriod").value;
+        oldAnnonce.descr= document.getElementById("property_description").value;
+        oldAnnonce.type= document.getElementById("typeMaison").value;
+        oldAnnonce.price= document.getElementById("price").value;
+        oldAnnonce.nbbedrooms= document.getElementById("nbbedrooms").value;
+        oldAnnonce.nbbathrooms= document.getElementById("nbbathrooms").value;
+        oldAnnonce.features= {
+            airc: document.getElementById("air_condition").checked,
+            bed: document.getElementById("bedding").checked,
+            cabletv: document.getElementById("cable_tv").checked,
+            internet: document.getElementById("internet").checked
+        };
+        oldAnnonce.gallery= document.getElementById('image').files[0]?document.getElementById('image').files[0].name:document.getElementById('galleryimg').innerHTML;
+    
+    // short arrow function (a=>a.id != id)
+    var newListAnnonce = annonceList.filter(a=>a.id != id);
+    // var newListAnnonce = annonceList.filter(function (a) {
+    //     return a.id != id;
+    // });
+    // push the structure and setitem as a string
+    newListAnnonce.push(oldAnnonce);
+    localStorage.setItem("annonce", JSON.stringify(newListAnnonce));
+    alert("updated successfuly ");
+}
+
+
+function handleFileSelect() {
+    document.getElementById("galleryimg").innerHTML = '';
 }

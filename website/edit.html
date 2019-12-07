@@ -94,10 +94,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1 class="page-banner-title">Add Properties</h1>
+                        <h1 class="page-banner-title">Edit Properties</h1>
                         <ul class="page-breadcrumb">
                             <li><a href="home.html">Home</a></li>
-                            <li class="active">Add Properties</li>
+                            <li class="active">Edit Properties</li>
                         </ul>
                     </div>
                 </div>
@@ -184,13 +184,13 @@
                             <div class="tab-pane" id="gallery_video">
                                 <div class="tab-body">
 
-                                    <form action="#">
+                                    <form>
                                         <div class="row">
                                             <div class="col-12 mb-30">
                                                 <label>Gallery Images</label>
                                                 <!-- <div class="dropzone"></div> -->
                                                 <div id="gallery" class="d-flex flex-wrap"></div>
-                                                <input type="file" id="image">
+                                                <input type="file" id="image" onChange='handleFileSelect()'><span id="galleryimg"></span>
                                             </div>
 
                                             
@@ -207,7 +207,7 @@
                             <div class="tab-pane" id="detailed_info">
                                 <div class="tab-body">
 
-                                    <form action="#">
+                                    <form onsubmit="event.preventDefault()">
                                         <div class="row">
                                             <div class="col-12 mb-30">
                                                 <label for="property_description">Description</label>
@@ -247,7 +247,8 @@
 
 
                                             <div class="nav d-flex justify-content-end col-12 mb-30 pl-15 pr-15">
-                                                <button class="property-submit btn" onclick="addAnnonce()"> Add</button>
+                                                <a href="profile.html" class="m-2"> Back To List</a>
+                                                <button class="property-submit btn" onclick="editAnnonce()" > Edit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -368,8 +369,12 @@
     <script src="assets/js/main.js"></script>
     <script src="crudannonce.js"></script>
     <script src="assets/js/index.js"></script>
+    <script src="crudannonce.js"></script>
     <script type="text/javascript">
         checkLogin();
+        var urlParams = new URLSearchParams(window.location.search)
+        fillAnnonce(urlParams.get("id"));
+        
     </script>
 
 </body>

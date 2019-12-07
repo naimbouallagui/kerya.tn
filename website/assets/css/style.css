@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Khonike - Real Estate Bootstrap 4 Template
+    Template Name: kerya.tn
     Version: 1.0
 
 -----------------------------------------------------------------------------------
@@ -2936,6 +2936,7 @@ only screen and (max-width: 767px) {
     margin-bottom: 25px;
     position: relative;
     overflow: hidden;
+    height: 180px;
 }
 
 .property-item .property-inner .image .label {

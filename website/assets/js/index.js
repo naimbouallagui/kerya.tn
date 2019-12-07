@@ -296,7 +296,7 @@ function fillProperties(loggedUser = null, checked = "Activated") {
           </div>
           <div class="left" style="margin-top: 10px;">
                 <div class="type-wrap">
-                    <button class="btn btn-edit">Edit</button>
+                    <a href="edit.html?id=${annonce.id}" class="btn btn-edit">Edit</a>
                     <button class="btn btn-delete">Delete</button>
                 </div>
           </div>
