@@ -98,43 +98,31 @@ function addAnnonce() {
 }
 
 function searchAnnC() {
-    search()
-    return;
-    var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
-    var citeapp = document.getElementById("cite").value;
-    var rent1 = document.getElementById("rent").value;
-    var type = document.getElementById("typeann").value;
-    var nbBedroom = document.getElementById("bedrooms").value;
-    var nbBath = document.getElementById("bathrooms").value;
-    var test = false;
-    let result = []
-    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    for (i = 0; i < listAnnonce.length; i++) {
-        if ((citeapp === listAnnonce[i].Adress) &&
-            (type === listAnnonce[i].type)) {
-            // && nbBedroom == listAnnonce[i].nbbedrooms && nbBath == listAnnonce[i].nbbathrooms)
-            result.push(listAnnonce[i]);
-        }
-    }
-    // debugger : test sur chaque ligne 
-    if (!loggedUser) {
-        localStorage.setItem("listSearch", JSON.stringify(result));
-        window.location = "../website/properties.html";
-    } else {
-        localStorage.setItem("listSearch", JSON.stringify(result));
-        window.location = "../website/propertiesc.html";
-    }
-    test = true;
+    search();
+    displaySearchPropreties();
+    
+
 }
 
 function search() {
     var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
-    var citeapp = document.getElementById("cite").value.replace('select','');
-    var title = document.getElementById("title").value;
-    var rent1 = document.getElementById("rent").value.replace('select','');
-    var type = document.getElementById("typeann").value.replace('select','');
-    var nbBedroom = document.getElementById("bedrooms").value.replace('select','');
-    var nbBath = document.getElementById("bathrooms").value.replace('select','');
+    
+    // var citeapp = document.getElementById("cite").value.replace('select','');
+    // var title = document.getElementById("title").value;
+    // var rent1 = document.getElementById("rent").value.replace('select','');
+    // var type = document.getElementById("typeann").value.replace('select','');
+    // var nbBedroom = document.getElementById("bedrooms").value.replace('select','');
+    // var nbBath = document.getElementById("bathrooms").value.replace('select','');
+
+    var urlParams = new URLSearchParams(window.location.search)
+
+    const citeapp = urlParams.get("city");
+    const title = urlParams.get("title");
+    const rent1 = urlParams.get("type");
+    const type = urlParams.get("category");
+    const nbBedroom = urlParams.get("beds");
+    const nbBath = urlParams.get("baths");
+
     var test = false;
     let result = listAnnonce
     var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
@@ -158,41 +146,58 @@ function search() {
     if(nbBath){
         result=filterByAttribute(result,'nbbathrooms',nbBath)
     }
-    if (!loggedUser) {
-        localStorage.setItem("listSearch", JSON.stringify(result));
-        window.location = "../website/properties.html";
-    } else {
-        localStorage.setItem("listSearch", JSON.stringify(result));
-        window.location = "../website/propertiesc.html";
-    }
+    // if (!loggedUser) {
+    //     localStorage.setItem("listSearch", JSON.stringify(result));
+    //     window.location = "../website/properties.html";
+    // } else {
+    //     localStorage.setItem("listSearch", JSON.stringify(result));
+    //     window.location = "../website/propertiesc.html";
+    // }
     test = true;
+    return result
 }
 
-
+/**
+ * this function filters an array of objects by an object key
+ *
+ * @param {*} [list=[]]
+ * @param {string} [attribute='']
+ * @param {string} [query='']
+ * @returns
+ */
 function filterByAttribute(list=[],attribute='',query='') {
-    // return list.filter(e=>e[attribute]==query)
-    return list.filter(function (element) {
-        return element[attribute]==query
-    })
-}
 
+    // ES6 return list.filter(e=>e[attribute]==query)
+   
+    // ES5 return list.filter(function (element) {
+    //     return element[attribute]==query
+    // })
 
-function editProfile() {
-    let listEdit = JSON.parse(localStorage.getItem("userList")) || [];
-
-    for (let i = 0; i < listEdit.length; i++) {
-        if (listEdit[i] == i) {
-            document.getElementById("f_name").value = listEdit[i].firstname;
-            document.getElementById("l_name").value = listEdit[i].lastname;
-            document.getElementById("personal_address").value = listEdit[i].adress;
-            document.getElementById("personal_number").value = listEdit[i].number;
-            document.getElementById("personal_email").value = listEdit[i].email;
-            document.getElementById("id").value = i;
-
-            break;
-        }
+    // ES5 WITHOUT FILTER FUNCTION
+    var aux=[]
+    for (let i = 0; i < list.length; i++) {
+        const element = list[i];
+        if(element[attribute]==query) aux.push(element);
     }
+    return aux;
 }
+
+
+// function editProfile() {
+//     let listEdit = JSON.parse(localStorage.getItem("userList")) || [];
+
+//     for (let i = 0; i < listEdit.length; i++) {
+//         if (listEdit[i] == i) {
+//             document.getElementById("f_name").value = listEdit[i].firstname;
+//             document.getElementById("l_name").value = listEdit[i].lastname;
+//             document.getElementById("personal_address").value = listEdit[i].adress;
+//             document.getElementById("personal_number").value = listEdit[i].number;
+//             document.getElementById("personal_email").value = listEdit[i].email;
+
+//             break;
+//         }
+//     }
+// }
 
 function fillAnnonce(id) {
     let annonceList = JSON.parse(localStorage.annonce);
@@ -264,4 +269,46 @@ function editAnnonce() {
 
 function handleFileSelect() {
     document.getElementById("galleryimg").innerHTML = '';
+}
+
+function fillProfile() {
+    let loggedUserc = JSON.parse(localStorage.loggedUser);
+    
+    document.getElementById("f_name").value = loggedUserc.firstname;
+    document.getElementById("l_name").value = loggedUserc.lastname;
+    document.getElementById("personal_address").value = loggedUserc.adress;
+    document.getElementById("personal_number").value = loggedUserc.number;
+    document.getElementById("personal_email").value = loggedUserc.email;
+    document.getElementById("personal_password").value = loggedUserc.password;
+    
+
+}
+
+function editProfile() {
+    
+    let loggedUserc = JSON.parse(localStorage.loggedUser);
+    const newProfile = loggedUserc
+    // structure of object to add in localstorage
+    
+        newProfile.firstname= document.getElementById("f_name").value;
+        newProfile.lastname= document.getElementById("l_name").value;
+        newProfile.adress= document.getElementById("personal_address").value;
+        newProfile.number= document.getElementById("personal_number").value;
+        newProfile.email= document.getElementById("personal_email").value;
+        newProfile.password= document.getElementById("personal_password").value;
+    
+    localStorage.setItem("loggedUser", JSON.stringify(newProfile));
+    
+    /**
+     * update users list
+     */
+    const allUsers=JSON.parse(localStorage.userList)
+    const newList=allUsers.map(function(user){
+        if(user.id==loggedUserc.id){
+            return newProfile
+        }
+        return user
+    })
+    localStorage.setItem("userList", JSON.stringify(newList));
+     alert("updated successfuly ");
 }

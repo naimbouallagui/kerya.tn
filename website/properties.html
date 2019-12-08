@@ -22,7 +22,7 @@
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 </head>
 
-<body onload="displaySearchPropreties()">
+<body >
 
     <div id="main-wrapper">
 
@@ -35,7 +35,7 @@
                         <!--Logo start-->
                         <div class="col mt-10 mb-10">
                             <div class="logo">
-                                <a href="index.html"><img class="logo-img" src="assets/images/others/logo.png" alt=""></a>
+                                <a href="home.html"><img class="logo-img" src="assets/images/others/logo.png" alt=""></a>
                             </div>
                         </div>
                         <!--Logo end-->
@@ -44,16 +44,16 @@
                         <div class="col d-none d-lg-flex">
                             <nav class="main-menu">
                                 <ul>
-                                    <li class="has-dropdown"><a href="index.html">Home</a>
+                                    <li class="has-dropdown"><a href="home.html">Home</a>
 
                                     </li>
-                                    <li class="has-dropdown"><a href="#properties">Properties</a>
+                                    <li class="has-dropdown"><a href="home.html#properties">Properties</a>
 
-                                        <li class="has-dropdown"><a href="#mobile-app">Mobile App</a></li>
-                                        <li class="has-dropdown"><a href="#our-service">Our Services</a>
+                                        <li class="has-dropdown"><a href="home.html#mobile-app">Mobile App</a></li>
+                                        <li class="has-dropdown"><a href="home.html#our-service">Our Services</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="#contact-us">Contact Us</a>
+                                        <li class="has-dropdown"><a href="home.html#contact-us">Contact Us</a>
 
                                         </li>
                                 </ul>
@@ -64,7 +64,13 @@
                         <!--User start-->
                         <div class="col mr-sm-50 mr-xs-50">
                             <div class="header-user">
-                                <a href="login-register.html" class="user-toggle"><i class="pe-7s-user"></i><span>Login or Register</span></a>
+                                <li class="li-point-style"><a data-toggle="dropdown"><i class="pe-7s-user" style="font-size: 39px;"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="add.html">Add Properties</a></li>
+                                        <li><a href="profile.html">Setting</a></li>
+                                        <li><a onclick="logOut()">Logout</a></li>
+                                    </ul>
+                                </li>
                             </div>
                         </div>
                         <!--User end-->
@@ -91,7 +97,7 @@
                     <div class="col">
                         <h1 class="page-banner-title">Properties</h1>
                         <ul class="page-breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.html">Home</a></li>
                             <li class="active">Properties</li>
                         </ul>
                     </div>
@@ -101,10 +107,9 @@
         <!--Page Banner Section end-->
 
         <!--New property section start-->
-        <div class="property-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50" style="margin-top: 150px;">
+        <div class="property-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-8 col-12 order-1 order-lg-2 mb-sm-50 mb-xs-50">
                         <div class="row" id="listsearch">
 
@@ -114,76 +119,72 @@
                     </div>
 
                     <div class="col-lg-4 col-12 order-2 order-lg-1 pr-30 pr-sm-15 pr-xs-15">
-
-                        <!--Sidebar start-->
                         <div class="sidebar">
-
-
+                            <h4 class="sidebar-title"><span class="text">Search Property</span><span class="shape"></span></h4>
                             <!--Property Search start-->
-                            <div class="property-search hero-property-search">
-                                    <form  onsubmit="event.preventDefault()">
+                            <div class="property-search sidebar-property-search">
     
-                                        <div>
-                                            <input type="text" placeholder="Ad title" id="title">
-                                        </div>
+                                <form   action="" method="GET">
+
+                                    <div>
+                                        <input type="text" name="title" placeholder="Ad title" id="title">
+                                    </div>
+
+                                    <div>
+                                        <select id="cite" name="city" class="nice-select">
+                                            <option value="">All Cities</option>
+                                            <option value="Ariana">Ariana</option>
+                                            <option value="Ben Arous">Ben Arous</option>
+                                            <option value="Tunis">Tunis</option>
+                                            <option value="Manouba">Manouba</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select id="rent" name="type" class="nice-select">
+                                            <option value="">Type</option>
+                                            <option value="rent">For Rent</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select id="typeann" name="category" class="nice-select">
+                                            <option  value="">Category</option>
+                                            <option value="apartment" >Apartment</option>
+                                            <option value="house">House</option>
+                                            
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select id="bedrooms" name="beds" class="nice-select">
+                                            <option value="">number of bed rooms</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select id="bathrooms" name="baths" class="nice-select">
+                                            <option value="">number of bathrooms</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button type="submit" >search</button>
+                                    </div>
+
+                                </form>
     
-                                        <div>
-                                            <select id="cite" class="nice-select">
-                                                <option value="">All Cities</option>
-                                                <option value="Ariana">Ariana</option>
-                                                <option value="Ben Arous">Ben Arous</option>
-                                                <option value="Tunis">Tunis</option>
-                                                <option value="Manouba">Manouba</option>
-                                            </select>
-                                        </div>
-    
-                                        <div>
-                                            <select id="rent" class="nice-select">
-                                                <option value="">Type</option>
-                                                <option value="rent">For Rent</option>
-                                            </select>
-                                        </div>
-    
-                                        <div>
-                                            <select id="typeann" class="nice-select">
-                                                <option  value="">Category</option>
-                                                <option value="apartment" >Apartment</option>
-                                                <option value="house">House</option>
-                                                
-                                            </select>
-                                        </div>
-    
-                                        <div>
-                                            <select id="bedrooms" class="nice-select">
-                                                <option value="">number of bed rooms</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </div>
-    
-                                        <div>
-                                            <select id="bathrooms" class="nice-select">
-                                                <option value="">number of bathrooms</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
-                                        </div>
-    
-                                    </form>
-    
-                                </div>
+                            </div>
                             <!--Property Search end-->
-
+                            
                         </div>
-                        <!--Sidebar end-->
-
 
 
                     </div>
@@ -297,10 +298,35 @@
     <script src="assets/js/map-place.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <script src="assets/js/index.js"></script>
     <script src="crudannonce.js"></script>
     <script src="assets/js/search.js"></script>
-    <script src="assets/js/index.js"></script>
-    search();
+ <script>
+        function fillSearchForm(){
+            var urlParams = new URLSearchParams(window.location.search)
+
+            const citeapp = urlParams.get("city");
+            const title = urlParams.get("title");
+            const rent1 = urlParams.get("type");
+            const type = urlParams.get("category");
+            const nbBedroom = urlParams.get("beds");
+            const nbBath = urlParams.get("baths");
+            document.getElementsByName('city')[0].value=citeapp
+            document.getElementsByName('title')[0].value=title
+            document.getElementsByName('type')[0].value=rent1
+            document.getElementsByName('category')[0].value=type
+            document.getElementsByName('beds')[0].value=nbBedroom
+            document.getElementsByName('baths')[0].value=nbBath
+        }
+    </script>
+    <script type="text/javascript">
+        // call function ( onload)
+        const res=search()
+        displaySearchPropreties(res)
+        //fillSearchForm()
+
+    </script>
+   
 </body>
 
 

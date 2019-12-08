@@ -108,14 +108,14 @@
                             <!--Property Search start-->
                             <div class="property-search hero-property-search">
                                 <h1 class="title">Find Your <span>Dream</span> Home</h1>
-                                <form  onsubmit="event.preventDefault()">
+                                <form   action="./propertiesc.html" method="GET">
 
                                     <div>
-                                        <input type="text" placeholder="Ad title" id="title">
+                                        <input type="text" name="title" placeholder="Ad title" id="title">
                                     </div>
 
                                     <div>
-                                        <select id="cite" class="nice-select">
+                                        <select id="cite" name="city" class="nice-select">
                                             <option value="">All Cities</option>
                                             <option value="Ariana">Ariana</option>
                                             <option value="Ben Arous">Ben Arous</option>
@@ -125,14 +125,14 @@
                                     </div>
 
                                     <div>
-                                        <select id="rent" class="nice-select">
+                                        <select id="rent" name="type" class="nice-select">
                                             <option value="">Type</option>
                                             <option value="rent">For Rent</option>
                                         </select>
                                     </div>
 
                                     <div>
-                                        <select id="typeann" class="nice-select">
+                                        <select id="typeann" name="category" class="nice-select">
                                             <option  value="">Category</option>
                                             <option value="apartment" >Apartment</option>
                                             <option value="house">House</option>
@@ -141,7 +141,7 @@
                                     </div>
 
                                     <div>
-                                        <select id="bedrooms" class="nice-select">
+                                        <select id="bedrooms" name="beds" class="nice-select">
                                             <option value="">number of bed rooms</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -151,7 +151,7 @@
                                     </div>
 
                                     <div>
-                                        <select id="bathrooms" class="nice-select">
+                                        <select id="bathrooms" name="baths" class="nice-select">
                                             <option value="">number of bathrooms</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -160,7 +160,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
+                                        <button type="submit" >search</button>
                                     </div>
 
                                 </form>
@@ -243,9 +243,8 @@
 
                     <!--Download Image Start-->
                     <div class="col-md-4 col-12 mb-30">
-                        <div class="download-image" style="position: relative; left: 0; top: 0;">
-                            <img src="assets/images/others/smartphone.png" alt="phone" class="phone">
-                            <img src="assets/images/others/logo.png"  alt="phone" class="logo-phone logo-img width-img">
+                        <div class="download-image" >
+                            <img src="assets/images/others/smartphone.png" alt="phone" >
                         </div>
                     </div>
                     <!--Download Image end-->

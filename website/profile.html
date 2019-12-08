@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mb-30"><button class="btn" onclick="fillProfile();">Save Change</button></div>
+                                        <div class="col-12 mb-30"><button class="btn" onclick="editProfile()" >Save Change</button></div>
                                     </div>
                                 </form>
                             </div>
@@ -282,12 +282,15 @@
         <script src="assets/js/map-place.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/index.js"></script>
+        <script src="crudannonce.js"></script>
         <script type="text/javascript">
+
             checkLogin();
             fillProperties(JSON.parse(localStorage.getItem('loggedUser')));
             fillProfile();
             bookingsListUser();
             confirmListAnn();
+        
         </script>
 
 </body>
