@@ -101,7 +101,7 @@
         <!--Page Banner Section end-->
 
         <!--New property section start-->
-        <div class="property-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <div class="property-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50" style="margin-top: 150px;">
             <div class="container">
                 <div class="row">
 
@@ -117,69 +117,68 @@
 
                         <!--Sidebar start-->
                         <div class="sidebar">
-                            <h4 class="sidebar-title"><span class="text">Search Property</span><span class="shape"></span></h4>
 
 
                             <!--Property Search start-->
-                            <div class="property-search sidebar-property-search">
-
-                                <form action="#">
-
-                                    <div>
-                                        <input type="text" placeholder="Location">
-                                    </div>
-
-                                    <div>
-                                        <select id="cite" class="nice-select">
-                                                <option>All Cities</option>
+                            <div class="property-search hero-property-search">
+                                    <form  onsubmit="event.preventDefault()">
+    
+                                        <div>
+                                            <input type="text" placeholder="Ad title" id="title">
+                                        </div>
+    
+                                        <div>
+                                            <select id="cite" class="nice-select">
+                                                <option value="">All Cities</option>
                                                 <option value="Ariana">Ariana</option>
                                                 <option value="Ben Arous">Ben Arous</option>
                                                 <option value="Tunis">Tunis</option>
                                                 <option value="Manouba">Manouba</option>
                                             </select>
-                                    </div>
-
-                                    <div>
-                                        <select id="rent" class="nice-select">
+                                        </div>
+    
+                                        <div>
+                                            <select id="rent" class="nice-select">
+                                                <option value="">Type</option>
                                                 <option value="rent">For Rent</option>
                                             </select>
-                                    </div>
-
-                                    <div>
-                                        <select id="typeann" class="nice-select">
-                                                <option>Type</option>
-                                                <option value="apartment">Apartment</option>
+                                        </div>
+    
+                                        <div>
+                                            <select id="typeann" class="nice-select">
+                                                <option  value="">Category</option>
+                                                <option value="apartment" >Apartment</option>
                                                 <option value="house">House</option>
                                                 
                                             </select>
-                                    </div>
-
-                                    <div>
-                                        <select id="bedrooms" class="nice-select">
-                                                <option>Bedrooms</option>
-                                                <option value="bed1">1</option>
-                                                <option value="bed2">2</option>
-                                                <option value="bed3">3</option>
-                                                <option value="bed4">4</option>
+                                        </div>
+    
+                                        <div>
+                                            <select id="bedrooms" class="nice-select">
+                                                <option value="">number of bed rooms</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
                                             </select>
-                                    </div>
-
-                                    <div>
-                                        <select id="bathrooms" class="nice-select">
-                                                <option>Bathrooms</option>
-                                                <option value="bath1">1</option>
-                                                <option value="bath2">2</option>
-                                                <option value="bath3">3</option>
+                                        </div>
+    
+                                        <div>
+                                            <select id="bathrooms" class="nice-select">
+                                                <option value="">number of bathrooms</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
                                                 
                                             </select>
-                                    </div>
-                                    <div>
-                                        <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
-                                    </div>
-
-                                </form>
-
-                            </div>
+                                        </div>
+                                        <div>
+                                            <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
+                                        </div>
+    
+                                    </form>
+    
+                                </div>
                             <!--Property Search end-->
 
                         </div>
@@ -301,6 +300,7 @@
     <script src="crudannonce.js"></script>
     <script src="assets/js/search.js"></script>
     <script src="assets/js/index.js"></script>
+    search();
 </body>
 
 

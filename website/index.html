@@ -100,64 +100,65 @@
 
                             <!--Property Search start-->
                             <div class="property-search hero-property-search">
-                                <h1 class="title">Find Your <span>Dream</span> Home</h1>
-                                <form onsubmit="event.preventDefault()">
-
-                                    <div>
-                                        <input type="text" placeholder="Location">
-                                    </div>
-
-                                    <div>
-                                        <select id="cite" class="nice-select">
-										<option>All Cities</option>
-										<option value="Ariana">Ariana</option>
-										<option value="Ben Arous">Ben Arous</option>
-										<option value="Tunis">Tunis</option>
-										<option value="Manouba">Manouba</option>
-									</select>
-                                    </div>
-
-                                    <div>
-                                        <select id="rent" class="nice-select">
-										<option value="rent">For Rent</option>
-									</select>
-                                    </div>
-
-                                    <div>
-                                        <select id="typeann" class="nice-select">
-										<option>Type</option>
-										<option value="apartment">Apartment</option>
-										<option value="house">House</option>
-										
-									</select>
-                                    </div>
-
-                                    <div>
-                                        <select id="bedrooms" class="nice-select">
-										<option>Bedrooms</option>
-										<option value="bed1">1</option>
-										<option value="bed2">2</option>
-										<option value="bed3">3</option>
-										<option value="bed4">4</option>
-									</select>
-                                    </div>
-
-                                    <div>
-                                        <select id="bathrooms" class="nice-select">
-										<option>Bathrooms</option>
-										<option value="bath1">1</option>
-										<option value="bath2">2</option>
-										<option value="bath3">3</option>
-										
-									</select>
-                                    </div>
-                                    <div>
-                                        <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
-                                    </div>
-
-                                </form>
-
-                            </div>
+                                    <h1 class="title">Find Your <span>Dream</span> Home</h1>
+                                    <form  onsubmit="event.preventDefault()">
+    
+                                        <div>
+                                            <input type="text" placeholder="Ad title" id="title">
+                                        </div>
+    
+                                        <div>
+                                            <select id="cite" class="nice-select">
+                                                <option value="">All Cities</option>
+                                                <option value="Ariana">Ariana</option>
+                                                <option value="Ben Arous">Ben Arous</option>
+                                                <option value="Tunis">Tunis</option>
+                                                <option value="Manouba">Manouba</option>
+                                            </select>
+                                        </div>
+    
+                                        <div>
+                                            <select id="rent" class="nice-select">
+                                                <option value="">Type</option>
+                                                <option value="rent">For Rent</option>
+                                            </select>
+                                        </div>
+    
+                                        <div>
+                                            <select id="typeann" class="nice-select">
+                                                <option  value="">Category</option>
+                                                <option value="apartment" >Apartment</option>
+                                                <option value="house">House</option>
+                                                
+                                            </select>
+                                        </div>
+    
+                                        <div>
+                                            <select id="bedrooms" class="nice-select">
+                                                <option value="">number of bed rooms</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                        </div>
+    
+                                        <div>
+                                            <select id="bathrooms" class="nice-select">
+                                                <option value="">number of bathrooms</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
+                                        </div>
+    
+                                    </form>
+    
+                                </div>
                             <!--Property Search end-->
 
                         </div>
@@ -194,7 +195,7 @@
                         <div class="property-item col">
                             <div class="property-inner">
                                 <div class="image">
-                                    <a href="single-properties-gallery.html"><img src="assets/images/property/property-1.jpg" alt=""></a>
+                                    <a href="#"><img src="assets/images/property/property-1.jpg" alt=""></a>
                                     <ul class="property-feature">
                                         <li>
                                             <span class="area"><img src="assets/images/icons/area.png" alt="">550 SqFt</span>
@@ -212,7 +213,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="left">
-                                        <h3 class="title"><a href="single-properties.html">Friuli-Venezia Giulia</a></h3>
+                                        <h3 class="title"><a href="#">Friuli-Venezia Giulia</a></h3>
                                         <span class="location"><img src="assets/images/icons/marker.png" alt="">568 E 1st Ave, Miami</span>
                                     </div>
                                     <div class="right">
@@ -226,188 +227,7 @@
                         </div>
                         <!--Property end-->
 
-                        <!--Property start-->
-                        <div class="property-item col">
-                            <div class="property-inner">
-                                <div class="image">
-                                    <span class="label">Feature</span>
-                                    <a href="single-properties.html"><img src="assets/images/property/property-2.jpg" alt=""></a>
-                                    <ul class="property-feature">
-                                        <li>
-                                            <span class="area"><img src="assets/images/icons/area.png" alt="">550 SqFt</span>
-                                        </li>
-                                        <li>
-                                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">6</span>
-                                        </li>
-                                        <li>
-                                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">4</span>
-                                        </li>
-                                        <li>
-                                            <span class="parking"><img src="assets/images/icons/parking.png" alt="">3</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="content">
-                                    <div class="left">
-                                        <h3 class="title"><a href="single-properties.html">Marvel de Villa</a></h3>
-                                        <span class="location"><img src="assets/images/icons/marker.png" alt="">450 E 1st Ave, New Jersey</span>
-                                    </div>
-                                    <div class="right">
-                                        <div class="type-wrap">
-                                            <span class="price">$2550</span>
-                                            <span class="type">For Sale</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Property end-->
-
-                        <!--Property start-->
-                        <div class="property-item col">
-                            <div class="property-inner">
-                                <div class="image">
-                                    <span class="label">popular</span>
-                                    <a href="single-properties.html"><img src="assets/images/property/property-3.jpg" alt=""></a>
-                                    <ul class="property-feature">
-                                        <li>
-                                            <span class="area"><img src="assets/images/icons/area.png" alt="">550 SqFt</span>
-                                        </li>
-                                        <li>
-                                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">6</span>
-                                        </li>
-                                        <li>
-                                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">4</span>
-                                        </li>
-                                        <li>
-                                            <span class="parking"><img src="assets/images/icons/parking.png" alt="">3</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="content">
-                                    <div class="left">
-                                        <h3 class="title"><a href="single-properties.html">Ruposi Bangla Cottage</a></h3>
-                                        <span class="location"><img src="assets/images/icons/marker.png" alt="">215 L AH Rod, California</span>
-                                    </div>
-                                    <div class="right">
-                                        <div class="type-wrap">
-                                            <span class="price">$550<span>M</span></span>
-                                            <span class="type">For Rent</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Property end-->
-
-                        <!--Property start-->
-                        <div class="property-item col">
-                            <div class="property-inner">
-                                <div class="image">
-                                    <a href="single-properties.html"><img src="assets/images/property/property-4.jpg" alt=""></a>
-                                    <ul class="property-feature">
-                                        <li>
-                                            <span class="area"><img src="assets/images/icons/area.png" alt="">550 SqFt</span>
-                                        </li>
-                                        <li>
-                                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">6</span>
-                                        </li>
-                                        <li>
-                                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">4</span>
-                                        </li>
-                                        <li>
-                                            <span class="parking"><img src="assets/images/icons/parking.png" alt="">3</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="content">
-                                    <div class="left">
-                                        <h3 class="title"><a href="single-properties.html">MayaKanon de Villa</a></h3>
-                                        <span class="location"><img src="assets/images/icons/marker.png" alt="">12 EA 1st Ave, Washington</span>
-                                    </div>
-                                    <div class="right">
-                                        <div class="type-wrap">
-                                            <span class="price">$550<span>M</span></span>
-                                            <span class="type">For Rent</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Property end-->
-
-                        <!--Property start-->
-                        <div class="property-item col">
-                            <div class="property-inner">
-                                <div class="image">
-                                    <a href="single-properties.html"><img src="assets/images/property/property-5.jpg" alt=""></a>
-                                    <ul class="property-feature">
-                                        <li>
-                                            <span class="area"><img src="assets/images/icons/area.png" alt="">550 SqFt</span>
-                                        </li>
-                                        <li>
-                                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">6</span>
-                                        </li>
-                                        <li>
-                                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">4</span>
-                                        </li>
-                                        <li>
-                                            <span class="parking"><img src="assets/images/icons/parking.png" alt="">3</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="content">
-                                    <div class="left">
-                                        <h3 class="title"><a href="single-properties.html">Azorex de South Villa</a></h3>
-                                        <span class="location"><img src="assets/images/icons/marker.png" alt="">668 L 2nd Ave, Boston</span>
-                                    </div>
-                                    <div class="right">
-                                        <div class="type-wrap">
-                                            <span class="price">$2550</span>
-                                            <span class="type">For Sale</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Property end-->
-
-                        <!--Property start-->
-                        <div class="property-item col">
-                            <div class="property-inner">
-                                <div class="image">
-                                    <span class="label">Feature</span>
-                                    <a href="single-properties.html"><img src="assets/images/property/property-6.jpg" alt=""></a>
-                                    <ul class="property-feature">
-                                        <li>
-                                            <span class="area"><img src="assets/images/icons/area.png" alt="">550 SqFt</span>
-                                        </li>
-                                        <li>
-                                            <span class="bed"><img src="assets/images/icons/bed.png" alt="">6</span>
-                                        </li>
-                                        <li>
-                                            <span class="bath"><img src="assets/images/icons/bath.png" alt="">4</span>
-                                        </li>
-                                        <li>
-                                            <span class="parking"><img src="assets/images/icons/parking.png" alt="">3</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="content">
-                                    <div class="left">
-                                        <h3 class="title"><a href="single-properties.html">Radison de Villa</a></h3>
-                                        <span class="location"><img src="assets/images/icons/marker.png" alt="">12 1st Ave, New Yourk</span>
-                                    </div>
-                                    <div class="right">
-                                        <div class="type-wrap">
-                                            <span class="price">$550<span>M</span></span>
-                                            <span class="type">For Rent</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Property end-->
+                        
 
                     </div>
                     <!--Property Slider end-->
@@ -680,7 +500,9 @@
         </footer>
         <!--Footer section end-->
     </div>
-
+    <script type="text/javascript">
+        fillCarousel();
+    </script>
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <!-- All jquery file included here -->
