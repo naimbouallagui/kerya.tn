@@ -103,7 +103,7 @@ function searchAnnC() {
     
 
 }
-
+// onload result page
 function search() {
     var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
     

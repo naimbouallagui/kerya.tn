@@ -571,7 +571,7 @@ function reservationDisplay() {
       html += `<div class = "property-inner" id="res">
                         <div class="head">
                         <div class="left">
-                            <h1 class="title">${list[i].title}dsfsdf</h1>
+                            <h1 class="title">${list[i].title}</h1>
                             <span class="location"><img src="assets/images/gallery/${list[i].gallery}" alt=""></span>
                         </div>
                         <div class="right">
