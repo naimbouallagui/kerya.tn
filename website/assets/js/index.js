@@ -246,7 +246,7 @@ function fillProperties(loggedUser = null, checked = "Activated") {
               <a href="#"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
               <ul class="property-feature">
                   <li>
-                      <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
+                      <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.area} /m2</span>
                   </li>
                   <li>
                       <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce.nbbedrooms}</span>
@@ -284,7 +284,7 @@ function fillProperties(loggedUser = null, checked = "Activated") {
           <a href="#"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
           <ul class="property-feature">
               <li>
-                  <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.price} Dt</span>
+                  <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce.area} /m2</span>
               </li>
               <li>
                   <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce.nbbedrooms}</span>
@@ -324,7 +324,7 @@ function displayDelete(id,title) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title"> remove property ${title}</h4>
+        <h4 class="modal-title"> Remove Property ${title}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -369,7 +369,7 @@ function displaySearchPropreties() {
             <a onclick="displayReservation(${listSearch.id})"><img src="assets/images/gallery/${listSearch.gallery}" alt="${listSearch.title}" style="height: 200px;"></a>
             <ul class="property-feature">
                 <li>
-                    <span class="area"><img src="assets/images/icons/area.png" alt="">${listSearch.price} Dt</span>
+                    <span class="area"><img src="assets/images/icons/area.png" alt="">${listSearch.area} /m2</span>
                 </li>
                 <li>
                     <span class="bed"><img src="assets/images/icons/bed.png" alt="">${listSearch.nbbedrooms}</span>
@@ -426,7 +426,7 @@ function bookingsListUser() {
                     <a href="#"><img src="assets/images/gallery/${annonce[i].gallery}" alt="${annonce[i].title}" style="height: 200px;"></a>
                     <ul class="property-feature">
                         <li>
-                            <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce[i].price} Dt</span>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce[i].area} /m2</span>
                         </li>
                         <li>
                             <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce[i].nbbedrooms}</span>
@@ -483,7 +483,7 @@ function confirmListAnn() {
                                 <a href="#"><img src="assets/images/gallery/${annonce[i].gallery}" alt="${annonce[i].title}" style="height: 200px;"></a>
                                 <ul class="property-feature">
                                     <li>
-                                        <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce[i].price} Dt</span>
+                                        <span class="area"><img src="assets/images/icons/area.png" alt="">${annonce[i].area} /m2</span>
                                     </li>
                                     <li>
                                         <span class="bed"><img src="assets/images/icons/bed.png" alt="">${annonce[i].nbbedrooms}</span>
@@ -595,7 +595,7 @@ function reservationDisplay() {
                                 <h3>Condition</h3>
                                 <ul class="feature-list">
                                     <li>
-                                        <div class="image"><img src="assets/images/icons/area.png" alt=""></div>Area : ${list[i].price}</li>
+                                        <div class="image"><img src="assets/images/icons/area.png" alt=""></div>Area : ${list[i].area}</li>
                                     <li>
                                         <div class="image"><img src="assets/images/icons/bed.png" alt=""></div>Bedroom : ${list[i].nbbedrooms}</li>
                                     <li>
@@ -771,7 +771,7 @@ function fillCarousel() {
                     <a href="#"><img src="assets/images/gallery/${element.gallery}" alt=""></a>
                     <ul class="property-feature">
                         <li>
-                            <span class="area"><img src="assets/images/icons/area.png" alt="">${element.price}DT</span>
+                            <span class="area"><img src="assets/images/icons/area.png" alt="">${element.area}/m2</span>
                         </li>
                         <li>
                             <span class="bed"><img src="assets/images/icons/bed.png" alt="">${element.nbbedrooms}</span>

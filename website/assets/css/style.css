@@ -4241,6 +4241,9 @@ only screen and (max-width: 767px) {
 .download-image img {
     width: 100%;
 }
+.width-img{
+    width: 0%
+}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .download-image {
@@ -7214,4 +7217,16 @@ only screen and (max-width: 767px) {
 
 .li-point-style{
   list-style-type: none;
+}
+.phone
+    {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+.logo-phone
+{
+    position: absolute;
+    top: 60px;
+    left: 80px;
 }

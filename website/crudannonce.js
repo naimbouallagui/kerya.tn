@@ -83,6 +83,7 @@ function addAnnonce() {
             cabletv: document.getElementById("cable_tv").checked,
             internet: document.getElementById("internet").checked
         },
+        area: document.getElementById('property_area').value,
         gallery: document.getElementById('image').files[0].name,
         checked: 'inProgress',
         owner: JSON.parse(localStorage.loggedUser).id
@@ -202,6 +203,7 @@ function fillAnnonce(id) {
     document.getElementById("cite").value = annonce.Adress;
     document.getElementById("rentinput").value = annonce.rent;
     document.getElementById("rentalPeriod").value = annonce.periode;
+    document.getElementById("property_area").value = annonce.area;
     document.getElementById("typeMaison").value = annonce.type;
     document.getElementById("price").value = annonce.price;
     document.getElementById("galleryimg").innerHTML = annonce.gallery;
@@ -231,6 +233,7 @@ function editAnnonce() {
     // structure of object to add in localstorage
     
         oldAnnonce.title= document.getElementById("property_title").value;
+        oldAnnonce.title= document.getElementById("property_area").value;
         oldAnnonce.Adress= document.getElementById("cite").value;
         oldAnnonce.rent= document.getElementById("rentinput").value;
         oldAnnonce.periode= document.getElementById("rentalPeriod").value;

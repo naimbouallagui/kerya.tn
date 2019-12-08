@@ -22,7 +22,7 @@
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 </head>
 
-<body onload="displaySearchPropreties()">
+<body onload="displaySearchPropreties();">
 
     <div id="main-wrapper">
 
@@ -47,13 +47,13 @@
                                     <li class="has-dropdown"><a href="home.html">Home</a>
 
                                     </li>
-                                    <li class="has-dropdown"><a href="#properties">Properties</a>
+                                    <li class="has-dropdown"><a href="home.html#properties">Properties</a>
 
-                                        <li class="has-dropdown"><a href="#mobile-app">Mobile App</a></li>
-                                        <li class="has-dropdown"><a href="#our-service">Our Services</a>
+                                        <li class="has-dropdown"><a href="home.html#mobile-app">Mobile App</a></li>
+                                        <li class="has-dropdown"><a href="home.html#our-service">Our Services</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="#contact-us">Contact Us</a>
+                                        <li class="has-dropdown"><a href="home.html#contact-us">Contact Us</a>
 
                                         </li>
                                 </ul>
@@ -118,71 +118,71 @@
                         
                     </div>
 
-                    <div class="col-lg-4 col-12 order-2 order-lg-1 pr-30 pr-sm-15 pr-xs-15">
+                    <div class="col-lg-4 col-12 order-2 order-lg-1 pr-30 pr-sm-15 pr-xs-15" style="margin-top: 150px;">
 
                         <!--Sidebar start-->
                         <div class="sidebar">
-                            <h4 class="sidebar-title"><span class="text">Search Property</span><span class="shape"></span></h4>
 
 
                             <!--Property Search start-->
-                            <div class="property-search sidebar-property-search">
-
-                                <form action="#">
+                            <div class="property-search hero-property-search">
+                                <form  onsubmit="event.preventDefault()">
 
                                     <div>
-                                        <input type="text" placeholder="Location">
+                                        <input type="text" placeholder="Ad title" id="title">
                                     </div>
 
                                     <div>
                                         <select id="cite" class="nice-select">
-                                                <option>All Cities</option>
-                                                <option value="Ariana">Ariana</option>
-                                                <option value="Ben Arous">Ben Arous</option>
-                                                <option value="Tunis">Tunis</option>
-                                                <option value="Manouba">Manouba</option>
-                                            </select>
+                                            <option value="">All Cities</option>
+                                            <option value="Ariana">Ariana</option>
+                                            <option value="Ben Arous">Ben Arous</option>
+                                            <option value="Tunis">Tunis</option>
+                                            <option value="Manouba">Manouba</option>
+                                        </select>
                                     </div>
 
                                     <div>
                                         <select id="rent" class="nice-select">
-                                                <option value="rent">For Rent</option>
-                                            </select>
+                                            <option value="">Type</option>
+                                            <option value="rent">For Rent</option>
+                                        </select>
                                     </div>
 
                                     <div>
                                         <select id="typeann" class="nice-select">
-                                                <option>Type</option>
-                                                <option value="apartment">Apartment</option>
-                                                <option value="house">House</option>
-                                                
-                                            </select>
+                                            <option  value="">Category</option>
+                                            <option value="apartment" >Apartment</option>
+                                            <option value="house">House</option>
+                                            
+                                        </select>
                                     </div>
 
                                     <div>
                                         <select id="bedrooms" class="nice-select">
-                                                <option>Bedrooms</option>
-                                                <option value="bed1">1</option>
-                                                <option value="bed2">2</option>
-                                                <option value="bed3">3</option>
-                                                <option value="bed4">4</option>
-                                            </select>
+                                            <option value="">number of bed rooms</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
                                     </div>
 
                                     <div>
                                         <select id="bathrooms" class="nice-select">
-                                                <option>Bathrooms</option>
-                                                <option value="bath1">1</option>
-                                                <option value="bath2">2</option>
-                                                <option value="bath3">3</option>
-                                                
-                                            </select>
+                                            <option value="">number of bathrooms</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            
+                                        </select>
                                     </div>
                                     <div>
                                         <button onclick="searchAnnC(); displaySearchPropreties()">search</button>
                                     </div>
 
                                 </form>
+
                             </div>
                             <!--Property Search end-->
 
