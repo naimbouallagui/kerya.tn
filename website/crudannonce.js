@@ -97,6 +97,8 @@ function addAnnonce() {
 }
 
 function searchAnnC() {
+    search()
+    return;
     var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
     var citeapp = document.getElementById("cite").value;
     var rent1 = document.getElementById("rent").value;
@@ -124,9 +126,54 @@ function searchAnnC() {
     test = true;
 }
 
-// function filterByAttribute(list,attribute,value) {
-    
-// }
+function search() {
+    var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
+    var citeapp = document.getElementById("cite").value.replace('select','');
+    var title = document.getElementById("title").value;
+    var rent1 = document.getElementById("rent").value.replace('select','');
+    var type = document.getElementById("typeann").value.replace('select','');
+    var nbBedroom = document.getElementById("bedrooms").value.replace('select','');
+    var nbBath = document.getElementById("bathrooms").value.replace('select','');
+    var test = false;
+    let result = listAnnonce
+    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if(citeapp){
+        result=filterByAttribute(result,'Adress',citeapp)
+    }
+    if(title){
+        result=result.filter(function(item) {
+            return item.title.indexOf(title)>-1
+        })
+    }
+    if(rent1){
+        result=filterByAttribute(result,'rent',rent1)
+    }
+    if(type){
+        result=filterByAttribute(result,'type',type)
+    }
+    if(nbBedroom){
+        result=filterByAttribute(result,'nbbedrooms',nbBedroom)
+    }
+    if(nbBath){
+        result=filterByAttribute(result,'nbbathrooms',nbBath)
+    }
+    if (!loggedUser) {
+        localStorage.setItem("listSearch", JSON.stringify(result));
+        window.location = "../website/properties.html";
+    } else {
+        localStorage.setItem("listSearch", JSON.stringify(result));
+        window.location = "../website/propertiesc.html";
+    }
+    test = true;
+}
+
+
+function filterByAttribute(list=[],attribute='',query='') {
+    // return list.filter(e=>e[attribute]==query)
+    return list.filter(function (element) {
+        return element[attribute]==query
+    })
+}
 
 
 function editProfile() {

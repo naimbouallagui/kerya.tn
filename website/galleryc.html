@@ -137,7 +137,7 @@
                             <!--Property Search start-->
                             <div class="property-search sidebar-property-search">
 
-                                <form action="#" id="reservationForm">
+                                <form onsubmit="event.preventDefault()" id="reservationForm">
 
                                     <div>
                                         <input type="date" id="startdate">
@@ -149,7 +149,8 @@
 
 
                                     <div>
-                                        <button onclick="reservationDate() ; testReservation()">Reservation</button>
+                                        <!-- <button onclick="reservationDate() ; testReservation()">Reservation</button> -->
+                                        <button onclick="reserveAd()">Reservation</button>
                                     </div>
 
                                 </form>

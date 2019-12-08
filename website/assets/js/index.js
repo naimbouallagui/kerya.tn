@@ -1,210 +1,216 @@
 function init() {
-    // 1: creation compte admin / create admin function()
-    // 2: creation compte client / create client function()
-    // 3: creation annonce / create annonce function()
+  // 1: creation compte admin / create admin function()
+  // 2: creation compte client / create client function()
+  // 3: creation annonce / create annonce function()
 }
 
 /**
  * firstName test
  */
 function firstName() {
-    var firstName = document.getElementById("firstname").value;
-    if (firstName.length == 0) {
-        return false;
-    }
-    return true;
+  var firstName = document.getElementById("firstname").value;
+  if (firstName.length == 0) {
+    return false;
+  }
+  return true;
 }
 
 /**
  * lastName test
  */
 function lastName() {
-    var lastName = document.getElementById("lastname").value;
-    if (lastName.length == 0) {
-        return false;
-    }
-    return true;
+  var lastName = document.getElementById("lastname").value;
+  if (lastName.length == 0) {
+    return false;
+  }
+  return true;
 }
 
 function isMailConfirmed() {
-    var mailValue = document.getElementById("mail").value;
-    var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  var mailValue = document.getElementById("mail").value;
+  var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (mailValue.length <= 0) {
-        return false;
-    } else if (regex.test(mailValue)) {
-        return true;
-    }
+  if (mailValue.length <= 0) {
     return false;
+  } else if (regex.test(mailValue)) {
+    return true;
+  }
+  return false;
 }
 
 /**
  * validNumber test
  */
 function validNumber() {
-    var phoneNumber = document.getElementById("number").value;
-    var number = /[0-9]/g;
-    var result = number.test(phoneNumber);
+  var phoneNumber = document.getElementById("number").value;
+  var number = /[0-9]/g;
+  var result = number.test(phoneNumber);
 
-    if (phoneNumber.length <= 0) {
-        return false;
-    } else if (result && phoneNumber.length == 8) {
-        return true;
-    }
+  if (phoneNumber.length <= 0) {
     return false;
+  } else if (result && phoneNumber.length == 8) {
+    return true;
+  }
+  return false;
 }
 
 /**
  * userName test
  */
 function userName() {
-    var userName = document.getElementById("username").value;
-    if (userName.indexOf(" ") > -1 || userName.length == 0) {
-        return false;
-    }
-    return true;
+  var userName = document.getElementById("username").value;
+  if (userName.indexOf(" ") > -1 || userName.length == 0) {
+    return false;
+  }
+  return true;
 }
 
 /**
  * majTest test
  */
 function majTest() {
-    var pass = document.getElementById("psw").value;
-    for (let i = 0; i < pass.length; i++) {
-        if (pass[i] == pass[i].toUpperCase()) {
-            return true;
-        }
+  var pass = document.getElementById("psw").value;
+  for (let i = 0; i < pass.length; i++) {
+    if (pass[i] == pass[i].toUpperCase()) {
+      return true;
     }
-    return false;
+  }
+  return false;
 }
 
 /**
  * carTest test
  */
 function carTest() {
-    var regex = "#!*%-+/";
-    var pass = document.getElementById("psw").value;
-    for (i = 0; i < pass.length; i++) {
-        if (regex.indexOf(pass[i]) > 0) {
-            return true;
-        }
+  var regex = "#!*%-+/";
+  var pass = document.getElementById("psw").value;
+  for (i = 0; i < pass.length; i++) {
+    if (regex.indexOf(pass[i]) > 0) {
+      return true;
     }
-    return false;
+  }
+  return false;
 }
 
 /**
  * passwordTest test
  */
 function passwordTest() {
-    let count = 0;
-    var pass = document.getElementById("psw").value;
+  let count = 0;
+  var pass = document.getElementById("psw").value;
 
-    if (pass.length < 8) {
-        // count = 0
-        return false;
-    } else {
-        count++;
-        // count = 1
-        if (majTest()) {
-            count++;
-            // count = 2
-        }
-
-        if (carTest()) {
-            count++;
-            // count = 3
-        }
+  if (pass.length < 8) {
+    // count = 0
+    return false;
+  } else {
+    count++;
+    // count = 1
+    if (majTest()) {
+      count++;
+      // count = 2
     }
 
-    if (count == 1) {
-        //   console.log("faible");
-        return true;
+    if (carTest()) {
+      count++;
+      // count = 3
     }
-    if (count == 2) {
-        //   console.log("moy");
-        return true;
-    }
-    if (count == 3) {
-        //   console.log("fort");
-        return true;
-    }
+  }
+
+  if (count == 1) {
+    //   console.log("faible");
+    return true;
+  }
+  if (count == 2) {
+    //   console.log("moy");
+    return true;
+  }
+  if (count == 3) {
+    //   console.log("fort");
+    return true;
+  }
 }
 
 /**
  * conPass test
  */
 function confirmPassword() {
-    var pass = document.getElementById("psw").value;
-    var confPass = document.getElementById("paswc").value;
-    if (pass == confPass) {
-        //   console.log("confirmed");
-        return true;
-    }
-    // console.log("not confirmed");
-    return false;
+  var pass = document.getElementById("psw").value;
+  var confPass = document.getElementById("paswc").value;
+  if (pass == confPass) {
+    //   console.log("confirmed");
+    return true;
+  }
+  // console.log("not confirmed");
+  return false;
 }
 
 /**
  * register test
  */
 function register() {
-    let listUser = JSON.parse(localStorage.getItem("userList"));
-    if (listUser == null) {
-        listUser = [];
-    }
-    if (
-        firstName() && lastName() && isMailConfirmed() && validNumber() && userName() && passwordTest() && confirmPassword()
-    ) {
-        var userObj = {
-            id: Math.floor(Math.random() * 1000 + 1),
-            firstname: document.getElementById("firstname").value,
-            lastname: document.getElementById("lastname").value,
-            email: document.getElementById("mail").value,
-            number: document.getElementById("number").value,
-            adress: document.getElementById("adress").value,
-            username: document.getElementById("username").value,
-            password: document.getElementById("psw").value,
-            confirmPass: document.getElementById("paswc").value,
-            isAdmin: false
-        };
+  let listUser = JSON.parse(localStorage.getItem("userList"));
+  if (listUser == null) {
+    listUser = [];
+  }
+  if (
+    firstName() &&
+    lastName() &&
+    isMailConfirmed() &&
+    validNumber() &&
+    userName() &&
+    passwordTest() &&
+    confirmPassword()
+  ) {
+    var userObj = {
+      id: Math.floor(Math.random() * 1000 + 1),
+      firstname: document.getElementById("firstname").value,
+      lastname: document.getElementById("lastname").value,
+      email: document.getElementById("mail").value,
+      number: document.getElementById("number").value,
+      adress: document.getElementById("adress").value,
+      username: document.getElementById("username").value,
+      password: document.getElementById("psw").value,
+      confirmPass: document.getElementById("paswc").value,
+      isAdmin: false
+    };
 
-        listUser.push(userObj);
-        localStorage.setItem("userList", JSON.stringify(listUser));
+    listUser.push(userObj);
+    localStorage.setItem("userList", JSON.stringify(listUser));
 
-        document.getElementById("firstname").value = "";
-        document.getElementById("lastname").value = "";
-        document.getElementById("mail").value = "";
-        document.getElementById("number").value = "";
-        document.getElementById("adress").value = "";
-        document.getElementById("username").value = "";
-        document.getElementById("psw").value = "";
-        document.getElementById("paswc").value = "";
-    }
-    var res = confirm('vous etes inscrit, voulez vous vous connecter')
-    if (res) location.reload()
+    document.getElementById("firstname").value = "";
+    document.getElementById("lastname").value = "";
+    document.getElementById("mail").value = "";
+    document.getElementById("number").value = "";
+    document.getElementById("adress").value = "";
+    document.getElementById("username").value = "";
+    document.getElementById("psw").value = "";
+    document.getElementById("paswc").value = "";
+  }
+  var res = confirm("vous etes inscrit, voulez vous vous connecter");
+  if (res) location.reload();
 }
 
 /**
  * login test
  */
 function logIn(e) {
-    e.preventDefault();
-    var login = document.getElementById("login").value;
-    var password = document.getElementById("password").value;
-    let listUser = JSON.parse(localStorage.getItem("userList"));
+  e.preventDefault();
+  var login = document.getElementById("login").value;
+  var password = document.getElementById("password").value;
+  let listUser = JSON.parse(localStorage.getItem("userList"));
 
-    for (i = 0; i < listUser.length; i++) {
-        if (listUser[i].username === login && listUser[i].password === password) {
-            localStorage.setItem("loggedUser", JSON.stringify(listUser[i]));
-            window.open(
-                listUser[i].isAdmin === 'true' ?
-                "../Adminkerya/index.html" :
-                "./home.html",
-                "_self"
-            );
-            break;
-        }
+  for (i = 0; i < listUser.length; i++) {
+    if (listUser[i].username === login && listUser[i].password === password) {
+      localStorage.setItem("loggedUser", JSON.stringify(listUser[i]));
+      window.open(
+        listUser[i].isAdmin === "true"
+          ? "../Adminkerya/index.html"
+          : "./home.html",
+        "_self"
+      );
+      break;
     }
+  }
 }
 
 /***
@@ -212,12 +218,12 @@ function logIn(e) {
  */
 
 function checkLogin() {
-    const loggedUser = localStorage.getItem("loggedUser");
+  const loggedUser = localStorage.getItem("loggedUser");
 
-    if (!loggedUser) {
-        //loggedUser == undefined
-        window.location = "../website/login-register.html";
-    }
+  if (!loggedUser) {
+    //loggedUser == undefined
+    window.location = "../website/login-register.html";
+  }
 }
 
 /***
@@ -225,16 +231,16 @@ function checkLogin() {
  */
 
 function logOut() {
-    localStorage.removeItem("loggedUser");
-    document.location = "../website/index.html";
+  localStorage.removeItem("loggedUser");
+  document.location = "../website/index.html";
 }
 
 function fillProperties(loggedUser = null, checked = "Activated") {
-    var listAnnonce = JSON.parse(localStorage.getItem('annonce'))
-    listAnnonce.forEach((annonce) => {
-        if (loggedUser === null && annonce.checked === checked) {
-
-            $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
+  var listAnnonce = JSON.parse(localStorage.getItem("annonce"));
+  listAnnonce.forEach(annonce => {
+    if (loggedUser === null && annonce.checked === checked) {
+      $("#propertiesList").append(
+        $(`<div class="property-item col-md-6 col-12 mb-40">
       <div class="property-inner">
           <div class="image">
               <a href="#"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
@@ -263,11 +269,16 @@ function fillProperties(loggedUser = null, checked = "Activated") {
               </div>
           </div>
       </div>
-  </div>`))
-        }
-        if (loggedUser && loggedUser.id === annonce.owner && annonce.checked === checked) {
-
-            $('#propertiesList').append($(`<div class="property-item col-md-6 col-12 mb-40">
+  </div>`)
+      );
+    }
+    if (
+      loggedUser &&
+      loggedUser.id === annonce.owner &&
+      annonce.checked === checked
+    ) {
+      $("#propertiesList").append(
+        $(`<div class="property-item col-md-6 col-12 mb-40">
   <div class="property-inner">
       <div class="image">
           <a href="#"><img src="assets/images/gallery/${annonce.gallery}" alt="${annonce.title}" style="height: 200px;"></a>
@@ -302,17 +313,19 @@ function fillProperties(loggedUser = null, checked = "Activated") {
           </div>
       </div>
   </div>
-</div>`))
-        }
-    })
+</div>`)
+      );
+    }
+  });
 }
 
-
-
 function displaySearchPropreties() {
-    var list = JSON.parse(localStorage.getItem("listSearch"));
-    list.forEach((listSearch) => {
-        $('#listsearch').append($(`<div class="property-item col-md-6 col-12 mb-40">
+  var list = JSON.parse(localStorage.getItem("listSearch"));
+  list
+    .filter(e => e.statut !== "accepted")
+    .forEach(listSearch => {
+      $("#listsearch").append(
+        $(`<div class="property-item col-md-6 col-12 mb-40">
     <div class="property-inner">
         <div class="image">
             <a onclick="displayReservation(${listSearch.id})"><img src="assets/images/gallery/${listSearch.gallery}" alt="${listSearch.title}" style="height: 200px;"></a>
@@ -341,34 +354,33 @@ function displaySearchPropreties() {
             </div>
         </div>
     </div>
-</div>`))
-        console.log(listSearch.id)
-        return true
-    })
+</div>`)
+      );
+      return true;
+    });
 }
 
-
 function bookingsListUser() {
-    var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
-    let annonce = JSON.parse(localStorage.getItem("annonce"));
-    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    // var list = JSON.parse(localStorage.getItem("listSearch"));
+  var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+  let annonce = JSON.parse(localStorage.getItem("annonce"));
+  var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  // var list = JSON.parse(localStorage.getItem("listSearch"));
 
-    var html = ``;
+  var html = ``;
 
-    for (let i = 0; i < annonce.length; i++) {
-        for (let j = 0; j < reservationdate.length; j++) {
-            if (annonce[i].id == reservationdate[j].idannonce) {
-                annonce[i]['Reserved'] = true;
-                annonce[i]['booker'] = reservationdate[j].loggedUserId;
-            }
-        }
+  for (let i = 0; i < annonce.length; i++) {
+    for (let j = 0; j < reservationdate.length; j++) {
+      if (annonce[i].id == reservationdate[j].idannonce) {
+        annonce[i]["Reserved"] = true;
+        annonce[i]["booker"] = reservationdate[j].loggedUserId;
+      }
+    }
 
-        // console.log((annonce[i]['Reserved']), annonce[i]['booker'], loggedUser.id);
+    // console.log((annonce[i]['Reserved']), annonce[i]['booker'], loggedUser.id);
 
-        if ((annonce[i]['Reserved']) && annonce[i]['booker'] == loggedUser.id) {
-            // console.log((annonce[i]['Reserved']));
-            html += ` <div class="row" id="bookingList">
+    if (annonce[i]["Reserved"] && annonce[i]["booker"] == loggedUser.id) {
+      // console.log((annonce[i]['Reserved']));
+      html += ` <div class="row" id="bookingList">
             <div class="property-item col-md-6 col-12 mb-40">
             <div class="property-inner">
                 <div class="image">
@@ -401,31 +413,31 @@ function bookingsListUser() {
             </div>
         </div>
         </div>`;
-        }
-
-
-
     }
-    // console.log(annonce);
+  }
+  // console.log(annonce);
 
-    document.getElementById("bookingList").innerHTML = html;
+  document.getElementById("bookingList").innerHTML = html;
 }
 
 function confirmListAnn() {
-    var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
-    let annonce = JSON.parse(localStorage.getItem("annonce"));
-    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    // var list = JSON.parse(localStorage.getItem("listSearch"));
+  var reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+  let annonce = JSON.parse(localStorage.getItem("annonce"));
+  var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  // var list = JSON.parse(localStorage.getItem("listSearch"));
 
-    var html = ``;
+  var html = ``;
 
-    for (let i = 0; i < annonce.length; i++) {
-        for (let j = 0; j < reservationdate.length; j++) {
-            if ((reservationdate[j].idannonce == annonce[i].id) && (annonce[i].owner == loggedUser.id)) {
-                //console.log(x);
-                // console.log(reservationdate[j]);
-                // console.log(annonce[i]);
-                html += ` 
+  for (let i = 0; i < annonce.length; i++) {
+    for (let j = 0; j < reservationdate.length; j++) {
+      if (
+        reservationdate[j].idannonce == annonce[i].id &&
+        annonce[i].owner == loggedUser.id
+      ) {
+        //console.log(x);
+        // console.log(reservationdate[j]);
+        // console.log(annonce[i]);
+        html += ` 
                 <div class="row" id="confirmList">
                     <div class="property-item col-md-6 col-12 mb-40">
                         <div class="property-inner">
@@ -456,41 +468,71 @@ function confirmListAnn() {
                                 </div>
                                 <div class="left" style="margin-top: 10px;">
                                     <div class="type-wrap">
-                                        <button class="btn">Accept</button>
-                                        <button class="btn">Deny</button>
+                                        ${annonce[i].statut!='accepted'?`<button class="btn" onclick="acceptReservation(${annonce[i].id},${reservationdate[j].id})">Accept</button>`:''}
+                                        <a class="m-2 text-danger" onclick="refuseReservation(${annonce[i].id},${reservationdate[j].id})">Deny</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>`;
-            }
-        }
-
-
-
+      }
     }
-    document.getElementById("confirmList").innerHTML = html;
+  }
+  document.getElementById("confirmList").innerHTML = html;
 }
 
+function acceptReservation(annonceId, reservationId) {
+  const allAds = JSON.parse(localStorage.annonce);
+  const newList = allAds.map(ad => {
+    if (ad.id == annonceId) {
+      let newAd = ad;
+      newAd.statut = "accepted";
+      return newAd;
+    }
+    return ad;
+  });
+  localStorage.setItem('annonce', JSON.stringify(newList))
+  alert('accepted successfully')
+  location.reload()
+}
+function refuseReservation(annonceId, reservationId) {
+  const allAds = JSON.parse(localStorage.annonce);
+  const newList = allAds.map(ad => {
+    if (ad.id == annonceId) {
+      let newAd = ad;
+      newAd.statut = "inProgress";
+      return newAd;
+    }
+    return ad;
+  });
+  localStorage.setItem('annonce', JSON.stringify(newList))
 
+  const allReserv = JSON.parse(localStorage.reservationdate);
+  const newReserv = allReserv.filter(ad => {
+    return (ad.id != reservationId) 
+  });
+  localStorage.setItem('reservationdate', JSON.stringify(newReserv))
+  alert('refused successfully')
+  location.reload()
+}
 
 function displayReservation(id) {
-    localStorage.setItem('reservationDetail', id)
-        // if (!loggedUser) {
-        //     location.href = 'gallery.html'
-        // } else {
-    location.href = 'galleryc.html'
+  localStorage.setItem("reservationDetail", id);
+  // if (!loggedUser) {
+  //     location.href = 'gallery.html'
+  // } else {
+  location.href = "galleryc.html";
 }
 
 function reservationDisplay() {
-    var list = JSON.parse(localStorage.getItem("listSearch"));
-    let html = ``;
-    let id = Number(localStorage.getItem('reservationDetail'));
-    console.log(id, 'id');
-    for (let i = 0; i < list.length; i++) {
-        if (list[i].id == id) {
-            html += `<div class = "property-inner" id="res">
+  var list = JSON.parse(localStorage.getItem("listSearch"));
+  let html = ``;
+  let id = Number(localStorage.getItem("reservationDetail"));
+  console.log(id, "id");
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].id == id) {
+      html += `<div class = "property-inner" id="res">
                         <div class="head">
                         <div class="left">
                             <h1 class="title">${list[i].title}dsfsdf</h1>
@@ -534,55 +576,102 @@ function reservationDisplay() {
                             </div>
                         </div>                
                         `;
-        }
     }
-    document.getElementById("res").innerHTML = html;
+  }
+  document.getElementById("res").innerHTML = html;
 }
 
-
 function reservationDate() {
-    var id = Number(localStorage.getItem('reservationDetail'));
+  var id = Number(localStorage.getItem("reservationDetail"));
 
-    var list = JSON.parse(localStorage.getItem("userList"));
-    var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    var reservationlist = JSON.parse(localStorage.getItem("reservationdate"));
-    if (reservationlist == null) {
-        reservationlist = [];
-    }
-    var userObj = {
-        idReservation: Math.floor(Math.random() * 1000 + 1),
-        datestart: document.getElementById("startdate").value,
-        dateend: document.getElementById("enddate").value,
-        idannonce: id,
-        statut: "inProgress",
-        loggedUserId: loggedUser.id
+  var list = JSON.parse(localStorage.getItem("userList"));
+  var loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  var reservationlist = JSON.parse(localStorage.getItem("reservationdate"));
+  if (reservationlist == null) {
+    reservationlist = [];
+  }
+  var userObj = {
+    idReservation: Math.floor(Math.random() * 1000 + 1),
+    datestart: document.getElementById("startdate").value,
+    dateend: document.getElementById("enddate").value,
+    idannonce: id,
+    statut: "inProgress",
+    loggedUserId: loggedUser.id
+  };
+  reservationlist.push(userObj);
+  localStorage.setItem("reservationdate", JSON.stringify(reservationlist));
+}
+function hasReservation(user, annonceId) {
+  const allReservations = JSON.parse(localStorage.getItem("reservationdate"));
+  const findReservation = (allReservations || []).find(
+    e => e.idannonce == annonceId && e.loggedUserId == user.id
+  );
+  if (findReservation === undefined) return false;
+  return true;
+}
+function reserveAd() {
+  const loggedUser = JSON.parse(localStorage.loggedUser);
+  var id = Number(localStorage.getItem("reservationDetail"));
+  const datesAreValid = validDates();
+  if (!datesAreValid) {
+    alert("Dates are not valid");
+    return;
+  }
+  const isAlreadyReserved = hasReservation(loggedUser, id);
+  if (isAlreadyReserved) {
+    alert("you have already reserved this advert");
+    return;
+  }
 
-    };
-    reservationlist.push(userObj);
-    localStorage.setItem("reservationdate", JSON.stringify(reservationlist));
-
-
+  var list = JSON.parse(localStorage.getItem("userList"));
+  var reservationlist = JSON.parse(localStorage.getItem("reservationdate"));
+  if (reservationlist == null) {
+    reservationlist = [];
+  }
+  var userObj = {
+    idReservation: Math.floor(Math.random() * 1000 + 1),
+    datestart: document.getElementById("startdate").value,
+    dateend: document.getElementById("enddate").value,
+    idannonce: id,
+    statut: "inProgress",
+    loggedUserId: loggedUser.id
+  };
+  reservationlist.push(userObj);
+  localStorage.setItem("reservationdate", JSON.stringify(reservationlist));
+  alert("reserved successfully");
 }
 
 function testReservation() {
+  var startDate1 = document.getElementById("startdate").value;
+  var endDate1 = document.getElementById("enddate").value;
+  let reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+  let annonce = JSON.parse(localStorage.getItem("annonce"));
 
-    var startDate1 = document.getElementById("startdate").value
-    var endDate1 = document.getElementById("enddate").value
-    let reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
-    let annonce = JSON.parse(localStorage.getItem("annonce"));
+  var today = new Date();
+  var dayStart = parseInt(startDate1.substr(8, 2));
+  var dayEnd = parseInt(endDate1.substr(8, 2));
+  if (today.getDate() < dayStart && dayEnd > dayStart) {
+    console.log("mrigl");
+    alert("reserved successfully");
+    return;
+  }
+  console.log("no");
+  alert("fix the date");
+}
 
-    var today = new Date();
-    var dayStart = parseInt(startDate1.substr(8, 2));
-    var dayEnd = parseInt(endDate1.substr(8, 2));
-    if ((today.getDate() < dayStart) && (dayEnd > dayStart)) {
-        console.log("mrigl")
+function validDates() {
+  var startDate1 = document.getElementById("startdate").value;
+  var endDate1 = document.getElementById("enddate").value;
+  let reservationdate = JSON.parse(localStorage.getItem("reservationdate"));
+  let annonce = JSON.parse(localStorage.getItem("annonce"));
 
-        return true;
-    } else
-        console.log("no")
-    alert("fixe the date")
-    return false;
-
+  var today = new Date();
+  var dayStart = new Date(startDate1);
+  var dayEnd = new Date(endDate1);
+  if (today < dayStart && dayEnd > dayStart) {
+    return true;
+  }
+  return false;
 }
 // for (let j = 0; j < annonce.length; j++) {
 //     for (let i = 0; i < reservationdate.length; i++) {
@@ -597,50 +686,48 @@ function testReservation() {
 // if (annonce[j]['Reserved']) {
 
 // }
-// } else 
+// } else
 
 function fillProfile() {
-    // const loggedUser = JSON.parse(localStorage.loggedUser)
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"))
-    let index = loggedUser.id;
-    //$('#f_name').val(loggedUser.firstname) //input or select
-    //$('#l_name').val(loggedUser.lastname) //input or select
-    //$('#personal_number').val(loggedUser.number) //input or select
-    //$('#personal_email').val(loggedUser.email) //input or select
-    //$('#username').val(loggedUser.username) //input or select
-    //$('#personal_address').val(loggedUser.adress) //input or select
-    //$('#personal_password').val(loggedUser.password) //input or select
-    //$('#personal_address').html(loggedUser.adress)// textzreza
-    //$('#username').html(loggedUser.username)// textzreza
-    document.getElementById('f_name').value = loggedUser.firstname;
-    document.getElementById('l_name').value = loggedUser.lastname;
-    document.getElementById('personal_number').value = loggedUser.number;
-    document.getElementById('personal_email').value = loggedUser.email;
-    document.getElementById('username').value = loggedUser.username;
-    document.getElementById('personal_address').value = loggedUser.adress;
-    document.getElementById('personal_password').value = loggedUser.password;
+  // const loggedUser = JSON.parse(localStorage.loggedUser)
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  let index = loggedUser.id;
+  //$('#f_name').val(loggedUser.firstname) //input or select
+  //$('#l_name').val(loggedUser.lastname) //input or select
+  //$('#personal_number').val(loggedUser.number) //input or select
+  //$('#personal_email').val(loggedUser.email) //input or select
+  //$('#username').val(loggedUser.username) //input or select
+  //$('#personal_address').val(loggedUser.adress) //input or select
+  //$('#personal_password').val(loggedUser.password) //input or select
+  //$('#personal_address').html(loggedUser.adress)// textzreza
+  //$('#username').html(loggedUser.username)// textzreza
+  document.getElementById("f_name").value = loggedUser.firstname;
+  document.getElementById("l_name").value = loggedUser.lastname;
+  document.getElementById("personal_number").value = loggedUser.number;
+  document.getElementById("personal_email").value = loggedUser.email;
+  document.getElementById("username").value = loggedUser.username;
+  document.getElementById("personal_address").value = loggedUser.adress;
+  document.getElementById("personal_password").value = loggedUser.password;
 
-
-//   loggedUser[index].firstname = document.getElementById("f_name").value;
-//   loggedUser[index].lastname = document.getElementById("l_name").value;
-//   loggedUser[index].number = document.getElementById("personal_number").value;
-//   loggedUser[index].email = document.getElementById("personal_email").value;
-//   loggedUser[index].username = document.getElementById("username").value;
-//   loggedUser[index].adress = document.getElementById("personal_address").value;
-//   loggedUser[index].password = document.getElementById("personal_password").value;
+  //   loggedUser[index].firstname = document.getElementById("f_name").value;
+  //   loggedUser[index].lastname = document.getElementById("l_name").value;
+  //   loggedUser[index].number = document.getElementById("personal_number").value;
+  //   loggedUser[index].email = document.getElementById("personal_email").value;
+  //   loggedUser[index].username = document.getElementById("username").value;
+  //   loggedUser[index].adress = document.getElementById("personal_address").value;
+  //   loggedUser[index].password = document.getElementById("personal_password").value;
 
   localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-//   displayTask();
-
+  //   displayTask();
 }
 
 function fillCarousel() {
-    let listCarousel = JSON.parse(localStorage.annonce)
-    let html = '';
-    for (let i = 0; i < listCarousel.length; i++) {
-        const element = listCarousel[i];
-        if (element.checked === 'Activated') {
-            html += `<div class="property-item col">
+  let listCarousel = JSON.parse(localStorage.annonce);
+  let html = "";
+  for (let i = 0; i < listCarousel.length; i++) {
+    const element = listCarousel[i];
+    if (element.checked === "Activated") {
+      html += `<div class="property-item col">
             <div class="property-inner">
                 <div class="image">
                     <a href="#"><img src="assets/images/gallery/${element.gallery}" alt=""></a>
@@ -669,9 +756,8 @@ function fillCarousel() {
                     </div>
                 </div>
             </div>
-        </div>`
-        }
-
+        </div>`;
     }
-    document.getElementById('carousel-property').innerHTML = html
+  }
+  document.getElementById("carousel-property").innerHTML = html;
 }
