@@ -764,3 +764,4 @@ function fillCarousel() {
   }
   document.getElementById("carousel-property").innerHTML = html;
 }
+
