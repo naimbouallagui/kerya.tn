@@ -305,8 +305,8 @@ function fillProperties(loggedUser = null, checked = "Activated") {
           </div>
           <div class="left" style="margin-top: 10px;">
                 <div class="type-wrap">
-                    <a href="edit.html?id=${annonce.id}" class="btn btn-edit">Edit</a>
-                    <button class="btn btn-delete" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce.id},'${annonce.title}')">Delete</button>
+                    <a href="edit.html?id=${annonce.id}" class="btn">Edit</a>
+                    <button class="btn" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce.id},'${annonce.title}')">Delete</button>
                 </div>
           </div>
       </div>
@@ -499,7 +499,7 @@ function confirmListAnn() {
                                 <div class="right">
                                     <div class="type-wrap">
                                         <span class="price">${annonce[i].price}DT<span>${annonce[i].periode}</span></span>
-                                        <span class="type">For Rent</span>
+                                        ${annonce[i].statut!='accepted'?``:`<span class="type">For Rent</span>`}
                                     </div>
                                 </div>
                                 <div class="left" style="margin-top: 10px;">
