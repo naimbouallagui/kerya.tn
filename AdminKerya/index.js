@@ -156,6 +156,7 @@ function modalDisplay(id) {
     }
     document.getElementById("modal_annonce").innerHTML = html;
 }
+// modal delete
 function displayDelete(id,title) {
       html = `<div class="modal fade" id="modal-default">
     <div class="modal-dialog">
@@ -178,6 +179,7 @@ function displayDelete(id,title) {
   </div>`;
   document.getElementById("modal_annonce").innerHTML = html;
 }
+// delete button on modal
 function removeProperty(id) {
   let listAd = JSON.parse(localStorage.getItem("annonce")) || [];
   // const index = listAd.findIndex(function (item) {
@@ -257,11 +259,7 @@ function listAnnonceActivated() {
               </i>
               View
           </a>
-          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce[i].id},'${annonce[i].title}')">
-              <i class="fas fa-trash">
-              </i>
-              Delete
-          </a>
+          
         </td>
     </tr>
     `;

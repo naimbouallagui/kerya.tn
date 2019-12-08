@@ -308,7 +308,7 @@ function fillProperties(loggedUser = null, checked = "Activated") {
           <div class="left" style="margin-top: 10px;">
                 <div class="type-wrap">
                     <a href="edit.html?id=${annonce.id}" class="btn btn-edit">Edit</a>
-                    <button class="btn btn-delete">Delete</button>
+                    <button class="btn btn-delete" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce.id},'${annonce.title}')">Delete</button>
                 </div>
           </div>
       </div>
@@ -319,6 +319,44 @@ function fillProperties(loggedUser = null, checked = "Activated") {
   });
 }
 
+function displayDelete(id,title) {
+    html = `<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"> remove property ${title}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>Are you sure you want to remove this property?</h4>
+        <h3>${title}</h3>
+      </div>
+      <div class="modal-footer" style="justify-content: center !important;">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="removeProperty(${id})">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+document.getElementById("modal_properties_delete").innerHTML = html;
+}
+// delete button on modal
+function removeProperty(id) {
+let listAd = JSON.parse(localStorage.getItem("annonce")) || [];
+// const index = listAd.findIndex(function (item) {
+//   return item.id == id;
+// })
+// listAd.splice(index, 1)
+// filter method
+const newListAd = listAd.filter(function (item) {
+  return item.id !== id;
+})
+
+localStorage.setItem('annonce', JSON.stringify(newListAd))
+location.reload()
+}
 function displaySearchPropreties() {
   var list = JSON.parse(localStorage.getItem("listSearch"));
   list
