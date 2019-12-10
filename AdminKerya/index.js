@@ -110,11 +110,6 @@ function listAnnonce() {
               </i>
               View
           </a>
-          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" onclick="displayDelete(${annonce[i].id},'${annonce[i].title}')">
-              <i class="fas fa-trash">
-              </i>
-              Delete
-          </a>
         </td>
     </tr>
     `;
